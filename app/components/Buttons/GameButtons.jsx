@@ -16,7 +16,7 @@ export const GameButton = ({weapon}) => {
           backgroundColor: weaponDarkColor,
           borderColor: weaponDarkColor,
         }}
-        className={`m-auto border-b-8 h-fit w-fit rounded-full z-40 `}
+        className={`m-auto Button3d border-b-8 h-fit w-fit rounded-full z-40 `}
       >
         <div
           style={{ borderColor: weaponLightColor }}

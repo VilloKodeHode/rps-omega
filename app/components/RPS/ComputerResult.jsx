@@ -11,13 +11,17 @@ export const ComputerResult = ({}) => {
       <h1 className="m-8 text-3xl">House picked </h1>
       <div className="relative m-auto w-fit">
         <EmptyGameButton />
-        <div className="[&>*]:animate-RPSPopUpDelayed">
+        <div className="[&>*]:animate-fallDownDelayed">
           {result === "WIN" || result === "DRAW" ? (
             <GameButton weapon={computerPick} />
           ) : (
             <div className="relative m-auto rounded-full w-fit">
+              <div className="[&>*]:animate-RPSPopUpDelayed">
               <WinnerGlow />
+              </div>
+              <div className="[&>*]:animate-fallDown">
               <GameButton weapon={computerPick} />
+              </div>
             </div>
           )}
         </div>

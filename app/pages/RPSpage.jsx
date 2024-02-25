@@ -11,6 +11,7 @@ import { RPSShowResult } from "../components/RPS/RPSShowResult";
 import { useContext, useEffect } from "react";
 import { RPSRules } from "../components/RPS/RPSRules";
 import { Navigation } from "../components/Navigation";
+import { GameButton } from "../components/Buttons/GameButtons";
 
 export const RockPaperScissors = () => {
   const { setAnimationClass, round, result } = useContext(GameContext);
@@ -41,7 +42,7 @@ export const RockPaperScissors = () => {
 
  
             <RPSShowResult />
-    
+          
         </div>
         <RPSRules />
       </div>

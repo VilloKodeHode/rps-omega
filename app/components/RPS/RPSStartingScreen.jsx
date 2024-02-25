@@ -31,6 +31,9 @@ export const StartingScreen = () => {
 
   return (
     <>
+       {/* <div className="[&>*]:animate-fallDown">
+     <GameButton weapon="rock" />
+     </div> */}
       {paper || scissors || rock || (
         <>
           <div className="relative z-20 flex items-center justify-center w-full h-full">

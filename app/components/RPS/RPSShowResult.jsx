@@ -30,7 +30,7 @@ export const RPSShowResult = () => {
           <div className="z-40 flex h-full text-white align-top">
             <div className="">
               
-              <h1 className="m-8 text-3xl">You picked</h1>
+              <h1 className="z-50 m-8 text-3xl">You picked</h1>
               {computerPick === "paper" || computerPick === "scissors" ? (
                 <>
                 <div className="[&>*]:animate-fallDown">
@@ -60,11 +60,13 @@ export const RPSShowResult = () => {
       {playerPick === "scissors" && (
         <>
           <div className="z-40 flex h-full text-white align-top">
-            <div className="[&>*]:animate-RPSPopUp">
+            <div className="">
               <h1 className="m-8 text-3xl">You picked</h1>
 
               {computerPick === "rock" || computerPick === "scissors" ? (
-                <GameButton weapon={playerPick} />
+                     <div className="[&>*]:animate-fallDown">
+                     <GameButton weapon={playerPick} />
+                     </div>
               ) : null}
 
               {computerPick === "paper" && (
@@ -73,7 +75,9 @@ export const RPSShowResult = () => {
                     <div className="[&>*]:animate-RPSPopUpDelayed">
                       <WinnerGlow />
                     </div>
-                    <GameButton weapon={playerPick} />
+                    <div className="[&>*]:animate-fallDown">
+                  <GameButton weapon={playerPick} />
+                  </div>
                   </div>
                 </>
               )}
@@ -87,11 +91,13 @@ export const RPSShowResult = () => {
       {playerPick === "rock" && (
         <>
           <div className="z-40 flex h-full text-white align-top">
-            <div className="[&>*]:animate-RPSPopUp">
+            <div className="">
               <h1 className="m-8 text-3xl">You picked</h1>
 
               {computerPick === "rock" || computerPick === "paper" ? (
-                <GameButton weapon={playerPick} />
+                     <div className="[&>*]:animate-fallDown">
+                     <GameButton weapon={playerPick} />
+                     </div>
               ) : null}
               {computerPick === "scissors" && (
                 <>
@@ -99,7 +105,9 @@ export const RPSShowResult = () => {
                     <div className="[&>*]:animate-RPSPopUpDelayed">
                       <WinnerGlow />
                     </div>
-                    <GameButton weapon={playerPick} />
+                    <div className="[&>*]:animate-fallDown">
+                  <GameButton weapon={playerPick} />
+                  </div>
                   </div>
                 </>
               )}

@@ -123,7 +123,7 @@ console.log(playerPick)
 
 export function ResultandRestart({ result, setType, setPlayerPick }) {
   return (
-    <div className="z-50 flex flex-col justify-center mx-8 [&>*]:animate-RPSPopUpMoreDelayed">
+    <div className="z-50 flex flex-col justify-center mx-8 [&>*]:animate-RPSPopUpResult">
       <h1 className="text-6xl text-center">
         {result === "WIN" || result === "LOSE" ? "YOU " : null}
         {result}
