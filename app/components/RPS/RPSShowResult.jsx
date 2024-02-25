@@ -23,16 +23,19 @@ export const RPSShowResult = () => {
     setPlayerPick,
   } = useContext(GameContext);
   return (
-    <div className="animate-RPSPopUp">
+    <div className="">
         {/* <Choice/> */}
       {playerPick === "paper" && (
         <>
           <div className="z-40 flex h-full text-white align-top">
-            <div className="[&>*]:animate-RPSPopUp">
+            <div className="">
+              
               <h1 className="m-8 text-3xl">You picked</h1>
               {computerPick === "paper" || computerPick === "scissors" ? (
                 <>
+                <div className="[&>*]:animate-fallDown">
                   <GameButton weapon={playerPick} />
+                  </div>
                 </>
               ) : null}
               {computerPick === "rock" && (
@@ -41,7 +44,9 @@ export const RPSShowResult = () => {
                     <div className="[&>*]:animate-RPSPopUpDelayed">
                       <WinnerGlow />
                     </div>
-                    <GameButton weapon={playerPick} />
+                    <div className="[&>*]:animate-fallDown">
+                  <GameButton weapon={playerPick} />
+                  </div>
                   </div>
                 </>
               )}

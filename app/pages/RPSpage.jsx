@@ -39,9 +39,9 @@ export const RockPaperScissors = () => {
         <div className="flex flex-wrap w-full h-full justify-center m-auto [&>*]:animate-RPSPopUp">
           <StartingScreen PlayRound={PlayRound} />
 
-          <div className="animate-RPSPopUp">
+ 
             <RPSShowResult />
-          </div>
+    
         </div>
         <RPSRules />
       </div>

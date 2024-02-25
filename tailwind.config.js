@@ -19,7 +19,7 @@ module.exports = {
       }),
       fontFamily: { Roboto: ["Roboto", "sans-serif"] },
       colors: {
-        "lightBlue":"#A8DEDC",
+        "lightBlue": "#A8DEDC",
       },
       keyframes: {
         popUp: {
@@ -34,6 +34,15 @@ module.exports = {
           "0%": { transform: "scale(0)", right: "0" },
           "100%": { transform: "scale(1)", right: "50%" },
         },
+        fallDown: {
+          "0%": { transform: "translateY(-300%) perspective(100px)" },
+          "55%": { transform: "translateY(0%)" },
+          "60%": { transform: "translateY(-10%) rotate(5deg)" },
+          "70%": { transform: "translateY(0%)"},
+          "80%": { transform: "translateY(-5%) rotate(-5deg)" },
+          "90%": { transform: "translateY(0%) rotate(0deg)" },
+          "100%": { transform: "translateY(0%) rotate(0deg)" },
+        }
       },
       animation: {
         ProjectPopUp: "popUp ease 0.3s linear",
@@ -42,6 +51,7 @@ module.exports = {
         rulesSlideIn: "slideIn 1s ease-in-out linear",
         RPSPopUpDelayed: "popUp 0.1s ease-in 1.0s backwards",
         RPSPopUpMoreDelayed: "popUp 0.1s ease-in 2s backwards",
+        fallDown: "fallDown 0.6s linear forwards",
       },
     },
   },
