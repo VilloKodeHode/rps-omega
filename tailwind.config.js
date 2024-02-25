@@ -18,6 +18,9 @@ module.exports = {
           "radial-gradient(90% 115% at 100% 0%, var(--tw-gradient-stops))",
       }),
       fontFamily: { Roboto: ["Roboto", "sans-serif"] },
+      colors: {
+        "lightBlue":"#A8DEDC",
+      },
       keyframes: {
         popUp: {
           "0%": { transform: "scale(0)", opacity: "0%" },

@@ -25,23 +25,23 @@ export const RPSShowResult = () => {
   return (
     <div className="animate-RPSPopUp">
         {/* <Choice/> */}
-      {paper && (
+      {playerPick === "paper" && (
         <>
-          <div className="flex h-full align-top z-40 text-white">
+          <div className="z-40 flex h-full text-white align-top">
             <div className="[&>*]:animate-RPSPopUp">
               <h1 className="m-8 text-3xl">You picked</h1>
               {computerPick === "paper" || computerPick === "scissors" ? (
                 <>
-                  <GameButton disabled={true} weapon="paper" />
+                  <GameButton weapon={playerPick} />
                 </>
               ) : null}
               {computerPick === "rock" && (
                 <>
-                  <div className="rounded-full w-fit m-auto relative z-40">
+                  <div className="relative z-40 m-auto rounded-full w-fit">
                     <div className="[&>*]:animate-RPSPopUpDelayed">
                       <WinnerGlow />
                     </div>
-                    <GameButton disabled={true} weapon="paper" />
+                    <GameButton weapon={playerPick} />
                   </div>
                 </>
               )}
@@ -52,23 +52,23 @@ export const RPSShowResult = () => {
         </>
       )}
 
-      {scissors && (
+      {playerPick === "scissors" && (
         <>
-          <div className="flex h-full align-top z-40 text-white">
+          <div className="z-40 flex h-full text-white align-top">
             <div className="[&>*]:animate-RPSPopUp">
               <h1 className="m-8 text-3xl">You picked</h1>
 
               {computerPick === "rock" || computerPick === "scissors" ? (
-                <GameButton disabled={true} weapon="scissors" />
+                <GameButton weapon={playerPick} />
               ) : null}
 
               {computerPick === "paper" && (
                 <>
-                  <div className="rounded-full w-fit m-auto relative z-40">
+                  <div className="relative z-40 m-auto rounded-full w-fit">
                     <div className="[&>*]:animate-RPSPopUpDelayed">
                       <WinnerGlow />
                     </div>
-                    <GameButton disabled={true} weapon="scissors" />
+                    <GameButton weapon={playerPick} />
                   </div>
                 </>
               )}
@@ -79,22 +79,22 @@ export const RPSShowResult = () => {
         </>
       )}
 
-      {rock && (
+      {playerPick === "rock" && (
         <>
-          <div className="flex h-full align-top z-40 text-white">
+          <div className="z-40 flex h-full text-white align-top">
             <div className="[&>*]:animate-RPSPopUp">
               <h1 className="m-8 text-3xl">You picked</h1>
 
               {computerPick === "rock" || computerPick === "paper" ? (
-                <GameButton weapon="rock" />
+                <GameButton weapon={playerPick} />
               ) : null}
               {computerPick === "scissors" && (
                 <>
-                  <div className="rounded-full w-fit m-auto relative z-40">
+                  <div className="relative z-40 m-auto rounded-full w-fit">
                     <div className="[&>*]:animate-RPSPopUpDelayed">
                       <WinnerGlow />
                     </div>
-                    <GameButton weapon="rock" />
+                    <GameButton weapon={playerPick} />
                   </div>
                 </>
               )}

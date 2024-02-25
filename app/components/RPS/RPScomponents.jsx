@@ -1,3 +1,5 @@
+"use client"
+
 import ScissorsGameButton, {
   PaperGameButton,
   RockGameButton,
@@ -28,8 +30,8 @@ export function WinnerGlow() {
 //         id={id}
 //         className={`rounded-full p-10 bg-white border-[22px] border-${color}-500  buttonshadow`}
 //       >
-//         <div className="h-20 w-20 flex relative">
-//           <img className="w-16 m-auto z-20" src={src} />
+//         <div className="relative flex w-20 h-20">
+//           <img className="z-20 w-16 m-auto" src={src} />
 //         </div>
 //       </div>
 //     </div>
@@ -47,7 +49,7 @@ export function InactiveGameButton(props) {
           id={id}
           className={`rounded-full p-10 bg-white border-[22px] border-${color}-500  buttonshadow`}
         >
-          <div className="h-20 w-20 flex">
+          <div className="flex w-20 h-20">
             <img className="w-16 m-auto" src={src} />
           </div>
         </div>
@@ -58,16 +60,18 @@ export function InactiveGameButton(props) {
 
 export function EmptyGameButton() {
   return (
-    <div className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 -z-50">
+    <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -z-50">
       <div className={`rounded-full p-10 bg-[#15183c] buttonshadow`}>
-        <div className="h-32 w-32 flex"></div>
+        <div className="flex w-32 h-32"></div>
       </div>
     </div>
   );
 }
 
-function PlayRound({ setComputerPick, setScore, setResult, setPlayerPick }, playerPick) {
-  // const { setComputerPick, setScore, setResult } = useContext(GameContext);
+
+
+function PlayRound({ setComputerPick, setScore, setResult, setPlayerPick },playerPick) {
+
   const randomNumber = Math.floor(Math.random() * 3 + 1);
   let computerPick;
   if (randomNumber === 1) {
@@ -84,33 +88,33 @@ function PlayRound({ setComputerPick, setScore, setResult, setPlayerPick }, play
   setComputerPick(computerPick);
   let result;
 
-  if (
+if (
     (playerPick === "rock" && computerPick === "scissors") ||
     (playerPick === "scissors" && computerPick === "paper") ||
     (playerPick === "paper" && computerPick === "rock")
-  ) {
+) {
     setTimeout(() => {
-      setScore((prevScore) => prevScore + 1), 500;
-    });
+        setScore((prevScore) => prevScore + 1);
+    }, 500);
     result = "WIN";
 
     console.log(
-      "Results from Playround function: playerpick: " + playerPick,
-      "computerpick: " + computerPick
+        "Results from Playround function: playerpick: " + playerPick,
+        "computerpick: " + computerPick
     );
-  } else if (
+} else if (
     (playerPick === "rock" && computerPick === "paper") ||
     (playerPick === "scissors" && computerPick === "rock") ||
     (playerPick === "paper" && computerPick === "scissors")
-  ) {
+) {
     result = "LOSE";
 
     setTimeout(() => {
-      setScore((prevScore) => prevScore - 1), 500;
-    });
-  } else {
+        setScore((prevScore) => prevScore - 1);
+    }, 500);
+} else {
     result = "DRAW";
-  }
+}
 setPlayerPick(playerPick);
   setResult(result);
 console.log(playerPick)
@@ -125,7 +129,7 @@ export function ResultandRestart({ result, setType, setPlayerPick }) {
         {result}
       </h1>
       <button
-        className="p-2 px-10 m-8 h-fit w-fit text-md tracking-widest text-red-600 bg-white z-50"
+        className="z-50 p-2 px-10 m-8 tracking-widest text-red-600 bg-white h-fit w-fit text-md"
         onClick={() => {
           setType(false);
           setPlayerPick("")

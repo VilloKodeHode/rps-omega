@@ -1,27 +1,23 @@
 import { GameContext } from "@/app/data/gameContext";
-import {useContext } from "react";
+import { useContext } from "react";
 import { EmptyGameButton, WinnerGlow } from "./RPScomponents";
 import { GameButton } from "../Buttons/GameButtons";
 
+
 export const ComputerResult = ({}) => {
-    const {computerPick,
- } = useContext(GameContext)
+  const { result, computerPick } = useContext(GameContext);
   return (
-    <div className="z-40">
+    <div className="relative z-40">
       <h1 className="m-8 text-3xl">House picked </h1>
-      <div className="relative">
+      <div className="relative m-auto w-fit">
         <EmptyGameButton />
         <div className="[&>*]:animate-RPSPopUpDelayed">
-          {computerPick === "rock" && (
-            <GameButton disabled={true} weapon="rock" />
-          )}
-          {computerPick === "paper" && (
-            <GameButton disabled={true} weapon="paper" />
-          )}
-          {computerPick === "scissors" && (
-            <div className="rounded-full w-fit m-auto relative">
+          {result === "WIN" || result === "DRAW" ? (
+            <GameButton weapon={computerPick} />
+          ) : (
+            <div className="relative m-auto rounded-full w-fit">
               <WinnerGlow />
-              <GameButton disabled={true} weapon="scissors" />
+              <GameButton weapon={computerPick} />
             </div>
           )}
         </div>
