@@ -72,7 +72,18 @@ export function EmptyGameButton() {
 
 function PlayRound({ setComputerPick, setScore, setResult, setPlayerPick },playerPick) {
 
+  //import in the new weaponsInfo array:
+  // const choices = ["rock", "paper", "scissors"];
+  // const randomNumber = Math.floor(Math.random() * 3);
+  
+  // const computerPick = choices[randomNumber];
+  // console.log("Computer picked:", computerPick);
+
+  // setComputerPick(computerPick);
+
   const randomNumber = Math.floor(Math.random() * 3 + 1);
+
+  
   let computerPick;
   if (randomNumber === 1) {
     computerPick = "rock";
