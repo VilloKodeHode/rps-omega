@@ -23,8 +23,12 @@ module.exports = {
       },
       keyframes: {
         popUp: {
-          "0%": { transform: "scale(0)", opacity: "0%" },
-          "100%": { transform: "scale(1)", opacity: "100%" },
+          "0%": { scale: 0, opacity: "0%" },
+          "100%": { scale: 1, opacity: "100%" },
+        },
+        buttonShadow: {
+          "0%": { scale: "0%", opacity: "0%" },
+          "100%": { scale: "100%", opacity: "100%" },
         },
         glow: {
           "0%": { opacity: "30%" },
@@ -54,6 +58,8 @@ module.exports = {
         RPSPopUpResult: "popUp 0.1s ease-in 2.5s backwards",
         fallDown: "fallDown 2.6s linear forwards",
         fallDownDelayed: "fallDown 1.6s 1s linear backwards",
+        playerButtonShadow: "buttonShadow 1.5s linear forwards",
+        computerButtonShadow: "buttonShadow 2.1s linear forwards",
       },
     },
   },

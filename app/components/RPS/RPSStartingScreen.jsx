@@ -14,7 +14,6 @@ export const StartingScreen = () => {
     rock,
     setRock,
     setComputerPick,
-    playerPick,
     setPlayerPick,
     setScore,
     setResult,
@@ -23,9 +22,9 @@ export const StartingScreen = () => {
 
   const handleButtonClick = (weapon) => {
     setPlayerPick(weapon);
-    setResult(
-      PlayRound({ setComputerPick, setScore, setResult, setPlayerPick }, weapon)
-    );
+    // setResult(
+    PlayRound({ setComputerPick, setScore, setResult, setPlayerPick }, weapon);
+    // );
     setRound((round) => round + 1);
   };
 

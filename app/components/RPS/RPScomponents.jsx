@@ -4,7 +4,9 @@ import ScissorsGameButton, {
   PaperGameButton,
   RockGameButton,
 } from "../Buttons/GameButtons";
-import { GameContext, useGameContext } from "@/app/data/gameContext";
+import { GameContext } from "@/app/data/gameContext";
+import { findWeaponInfo, updateScore } from "@/app/data/utils";
+import { weaponsInfo } from "@/app/data/weapons";
 import { useContext } from "react";
 export function WinnerGlow() {
   return (
@@ -58,32 +60,33 @@ export function InactiveGameButton(props) {
   );
 }
 
-export function EmptyGameButton() {
+export function EmptyGameButton({ playerOrComputer }) {
   return (
-    <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -z-50">
-      <div className={`rounded-full p-10 bg-[#15183c] buttonshadow`}>
+    <div
+      className={`absolute origin-left -translate-x-1/2 -translate-y-1/2 ${
+        playerOrComputer === "computer"
+          ? "animate-computerButtonShadow"
+          : "animate-playerButtonShadow"
+      } top-1/2 left-1/2`}
+    >
+      <div
+        className={`rounded-full p-10 bg-[#15183c] 
+      `}
+      >
         <div className="flex w-32 h-32"></div>
       </div>
     </div>
   );
 }
 
-
-
-function PlayRound({ setComputerPick, setScore, setResult, setPlayerPick },playerPick) {
-
-  //import in the new weaponsInfo array:
-  // const choices = ["rock", "paper", "scissors"];
-  // const randomNumber = Math.floor(Math.random() * 3);
-  
-  // const computerPick = choices[randomNumber];
-  // console.log("Computer picked:", computerPick);
-
-  // setComputerPick(computerPick);
-
+function PlayRound(
+  { setComputerPick, setScore, setResult, setPlayerPick },
+  playerPick
+) {
+  // const computerWeapon = weaponsInfo[Math.floor(Math.random() * 3)].weaponName;
+  // console.log(computerWeapon);
   const randomNumber = Math.floor(Math.random() * 3 + 1);
 
-  
   let computerPick;
   if (randomNumber === 1) {
     computerPick = "rock";
@@ -92,43 +95,24 @@ function PlayRound({ setComputerPick, setScore, setResult, setPlayerPick },playe
   } else {
     computerPick = "scissors";
   }
-  console.log(
-    "computer picked from the ComputerPick function: " + computerPick
-  );
 
   setComputerPick(computerPick);
+
   let result;
 
-if (
-    (playerPick === "rock" && computerPick === "scissors") ||
-    (playerPick === "scissors" && computerPick === "paper") ||
-    (playerPick === "paper" && computerPick === "rock")
-) {
-    setTimeout(() => {
-        setScore((prevScore) => prevScore + 1);
-    }, 500);
+  if (findWeaponInfo(playerPick, "win").includes(computerPick) === true) {
     result = "WIN";
-
-    console.log(
-        "Results from Playround function: playerpick: " + playerPick,
-        "computerpick: " + computerPick
-    );
-} else if (
-    (playerPick === "rock" && computerPick === "paper") ||
-    (playerPick === "scissors" && computerPick === "rock") ||
-    (playerPick === "paper" && computerPick === "scissors")
-) {
+    updateScore(result, setScore);
+  } else if (computerPick !== playerPick) {
     result = "LOSE";
 
-    setTimeout(() => {
-        setScore((prevScore) => prevScore - 1);
-    }, 500);
-} else {
+    updateScore(result, setScore);
+  } else {
     result = "DRAW";
-}
-setPlayerPick(playerPick);
+  }
+  setPlayerPick(playerPick);
   setResult(result);
-console.log(playerPick)
+  console.log(playerPick);
   return result;
 }
 

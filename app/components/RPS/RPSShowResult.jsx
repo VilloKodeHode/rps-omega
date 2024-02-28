@@ -24,34 +24,41 @@ export const RPSShowResult = () => {
   } = useContext(GameContext);
   return (
     <div className="">
-        {/* <Choice/> */}
       {playerPick === "paper" && (
         <>
           <div className="z-40 flex h-full text-white align-top">
             <div className="">
-              
               <h1 className="z-50 m-8 text-3xl">You picked</h1>
               {computerPick === "paper" || computerPick === "scissors" ? (
                 <>
-                <div className="[&>*]:animate-fallDown">
-                  <GameButton weapon={playerPick} />
+                  <div className="relative">
+                    <EmptyGameButton />
+
+                    <div className="[&>*]:animate-fallDown">
+                      <GameButton weapon={playerPick} />
+                    </div>
                   </div>
                 </>
               ) : null}
               {computerPick === "rock" && (
                 <>
                   <div className="relative z-40 m-auto rounded-full w-fit">
+                    <EmptyGameButton />
                     <div className="[&>*]:animate-RPSPopUpDelayed">
                       <WinnerGlow />
                     </div>
                     <div className="[&>*]:animate-fallDown">
-                  <GameButton weapon={playerPick} />
-                  </div>
+                      <GameButton weapon={playerPick} />
+                    </div>
                   </div>
                 </>
               )}
             </div>
-            <ResultandRestart setType={setPaper} setPlayerPick={setPlayerPick} result={result} />
+            <ResultandRestart
+              setType={setPaper}
+              setPlayerPick={setPlayerPick}
+              result={result}
+            />
             <ComputerResult />
           </div>
         </>
@@ -64,25 +71,34 @@ export const RPSShowResult = () => {
               <h1 className="m-8 text-3xl">You picked</h1>
 
               {computerPick === "rock" || computerPick === "scissors" ? (
-                     <div className="[&>*]:animate-fallDown">
-                     <GameButton weapon={playerPick} />
-                     </div>
+                <div className="relative">
+                  <EmptyGameButton />
+
+                  <div className="[&>*]:animate-fallDown">
+                    <GameButton weapon={playerPick} />
+                  </div>
+                </div>
               ) : null}
 
               {computerPick === "paper" && (
                 <>
                   <div className="relative z-40 m-auto rounded-full w-fit">
+                    <EmptyGameButton />
                     <div className="[&>*]:animate-RPSPopUpDelayed">
                       <WinnerGlow />
                     </div>
                     <div className="[&>*]:animate-fallDown">
-                  <GameButton weapon={playerPick} />
-                  </div>
+                      <GameButton weapon={playerPick} />
+                    </div>
                   </div>
                 </>
               )}
             </div>
-            <ResultandRestart setPlayerPick={setPlayerPick} setType={setScissors} result={result} />
+            <ResultandRestart
+              setPlayerPick={setPlayerPick}
+              setType={setScissors}
+              result={result}
+            />
             <ComputerResult />
           </div>
         </>
@@ -95,24 +111,33 @@ export const RPSShowResult = () => {
               <h1 className="m-8 text-3xl">You picked</h1>
 
               {computerPick === "rock" || computerPick === "paper" ? (
-                     <div className="[&>*]:animate-fallDown">
-                     <GameButton weapon={playerPick} />
-                     </div>
+                <div className="relative">
+                  <EmptyGameButton />
+
+                  <div className="[&>*]:animate-fallDown">
+                    <GameButton weapon={playerPick} />
+                  </div>
+                </div>
               ) : null}
               {computerPick === "scissors" && (
                 <>
                   <div className="relative z-40 m-auto rounded-full w-fit">
+                    <EmptyGameButton />
                     <div className="[&>*]:animate-RPSPopUpDelayed">
                       <WinnerGlow />
                     </div>
                     <div className="[&>*]:animate-fallDown">
-                  <GameButton weapon={playerPick} />
-                  </div>
+                      <GameButton weapon={playerPick} />
+                    </div>
                   </div>
                 </>
               )}
             </div>
-            <ResultandRestart setType={setRock} setPlayerPick={setPlayerPick} result={result} />
+            <ResultandRestart
+              setType={setRock}
+              setPlayerPick={setPlayerPick}
+              result={result}
+            />
             <ComputerResult />
           </div>
         </>

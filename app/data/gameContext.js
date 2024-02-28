@@ -46,30 +46,30 @@ export const GameContextProvider = ({ children }) => {
     )
 }
 
-export const useGameContext = () => {
-    const { paper, setPaper,
-        scissors, setScissors,
-        rock, setRock,
-        playerPick, setPlayerPick,
-        computerPick, setComputerPick,
-        score, setScore,
-        result, setResult,
-        toggle, setToggle,
-        animationClass, setAnimationClass,
-        round, setRound, test, setTest } = useContext(GameContext)
-    return (
-        {
-            paper, setPaper,
-            scissors, setScissors,
-            rock, setRock,
-            playerPick, setPlayerPick,
-            computerPick, setComputerPick,
-            score, setScore,
-            result, setResult,
-            toggle, setToggle,
-            animationClass, setAnimationClass,
-            round, setRound,
-            test, setTest
-        }
-    )
-}
+// export const useGameContext = () => {
+//     const { paper, setPaper,
+//         scissors, setScissors,
+//         rock, setRock,
+//         playerPick, setPlayerPick,
+//         computerPick, setComputerPick,
+//         score, setScore,
+//         result, setResult,
+//         toggle, setToggle,
+//         animationClass, setAnimationClass,
+//         round, setRound, test, setTest } = useContext(GameContext)
+//     return (
+//         {
+//             paper, setPaper,
+//             scissors, setScissors,
+//             rock, setRock,
+//             playerPick, setPlayerPick,
+//             computerPick, setComputerPick,
+//             score, setScore,
+//             result, setResult,
+//             toggle, setToggle,
+//             animationClass, setAnimationClass,
+//             round, setRound,
+//             test, setTest
+//         }
+//     )
+// }

@@ -1,17 +1,19 @@
 "use client"
 
-import { GameContext, useGameContext } from "@/app/data/gameContext";
-import { weapons } from "@/app/data/weapons";
+import { GameContext } from "@/app/data/gameContext";
+import { findWeaponColor, findWeaponInfo } from "@/app/data/utils";
+import { weapons, weaponsInfo } from "@/app/data/weapons";
 import { useContext } from "react";
 
+export const GameButton = ({ weapon }) => {
+  // console.log(findWeaponInfo(weapon, "defeats").includes("paper"));
 
-export const GameButton = ({weapon}) => {
-  const weaponLightColor = weapons[0][weapon][0];
-  const weaponDarkColor = weapons[0][weapon][1];
+  const weaponLightColor = findWeaponColor(weapon, "light");
+  const weaponDarkColor = findWeaponColor(weapon, "dark");
+
   return (
     <>
-      <div 
-     
+      <div
         style={{
           backgroundColor: weaponDarkColor,
           borderColor: weaponDarkColor,

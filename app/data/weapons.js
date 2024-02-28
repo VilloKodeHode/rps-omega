@@ -12,48 +12,46 @@ export const weapons = [
 
   export const weaponsInfo = [
     {
-      scissors: {
-        weaponName: "scissors",
-        darkColor: "#eab308",
-        lightColor: "#a16207",
-        defeats: ["paper", "lizard", "water"]
-      },
-      rock: {
-        weaponName: "rock",
-        darkColor: "#ef4444",
-        lightColor: "#b91c1c",
-        defeats: ["scissors", "lizard", "fire"]
-      },
-      paper: {
-        weaponName: "paper",
-        darkColor: "#3b82f6",
-        lightColor: "#1d4ed8",
-        defeats: ["rock", "spock", "water"]
-      },
-      lizard: {
-        weaponName: "lizard",
-        darkColor: "#a855f7",
-        lightColor: "#7e22ce",
-        defeats: ["spock", "paper", "water"]
-      },
-      spock: {
-        weaponName: "spock",
-        darkColor: "#14b8a6",
-        lightColor: "#0f766e",
-        defeats: ["scissors", "rock", "fire"]
-      },
-      fire: {
-        weaponName: "fire",
-        darkColor: "#f97316",
-        lightColor: "#c2410c",
-        defeats: ["scissors", "paper", "lizard"]
-      },
-      water: {
-        weaponName: "water",
-        darkColor: "#0ea5e9",
-        lightColor: "#0369a1",
-        defeats: ["rock", "fire", "spock"]
-      },
+      weaponName: "scissors",
+      lightColor: "#eab308",
+      darkColor: "#a16207",
+      win: ["paper", "lizard", "water"]
+    },
+    {
+      weaponName: "rock",
+      lightColor: "#ef4444",
+      darkColor: "#b91c1c",
+      win: ["scissors", "lizard", "fire"]
+    },
+    {
+      weaponName: "paper",
+      lightColor: "#3b82f6",
+      darkColor: "#1d4ed8",
+      win: ["rock", "spock", "water"]
+    },
+    {
+      weaponName: "lizard",
+      lightColor: "#a855f7",
+      darkColor: "#7e22ce",
+      win: ["spock", "paper", "water"]
+    },
+    {
+      weaponName: "spock",
+      lightColor: "#14b8a6",
+      darkColor: "#0f766e",
+      win: ["scissors", "rock", "fire"]
+    },
+    {
+      weaponName: "fire",
+      lightColor: "#f97316",
+      darkColor: "#c2410c",
+      win: ["scissors", "paper", "lizard"]
+    },
+    {
+      weaponName: "water",
+      lightColor: "#0ea5e9",
+      darkColor: "#0369a1",
+      win: ["rock", "fire", "spock"]
     },
   ];
   
