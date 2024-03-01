@@ -48,6 +48,39 @@ export const ActiveGameButton = ({setWeapon, weapon, handleButtonClick}) => {
   )
 }
 
+export function EmptyGameButton({ playerOrComputer }) {
+  return (
+    <div
+      className={`absolute origin-left -translate-x-1/2 -translate-y-1/2 ${
+        playerOrComputer === "computer"
+          ? "animate-computerButtonShadow"
+          : "animate-playerButtonShadow"
+      } top-1/2 left-1/2`}
+    >
+      <div
+        className={`rounded-full p-10 bg-[#15183c] 
+      `}
+      >
+        <div className="flex w-32 h-32"></div>
+      </div>
+    </div>
+  );
+}
+
+export function WinnerGlow() {
+  return (
+    <>
+      <div className="[&>*]:animate-RPSPopUpDelayed">
+        <div className=" [&>*]:animate-glow">
+          <div className="absolute h-[300px] w-[300px] bg-sky-900 bg-opacity-30 winner -z-10 rounded-full"></div>
+          <div className="absolute h-[400px] w-[400px] bg-sky-900 bg-opacity-20 winner -z-20 rounded-full"></div>
+          <div className="absolute h-[500px] w-[500px] bg-sky-900 bg-opacity-10 winner -z-30 rounded-full"></div>
+        </div>
+      </div>
+    </>
+  );
+}
+
 //Largest buttons:
 export function ScissorsGameButton() {
   return (

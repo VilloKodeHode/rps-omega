@@ -28,3 +28,6 @@ export const updateScore = (result, setScore) => {
     }, 500);
 }
 
+export const randomWeapon = (numOfWeapons) => weaponsInfo[Math.floor(Math.random() * numOfWeapons)].weaponName;
+
+export const getAllWeaponNames = () => weaponsInfo.map((weapon) => weapon.weaponName)

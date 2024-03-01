@@ -1,7 +1,11 @@
 import { GameContext } from "@/app/data/gameContext";
-import { GameButton } from "../Buttons/GameButtons";
+import {
+  EmptyGameButton,
+  GameButton,
+  WinnerGlow,
+} from "../Buttons/GameButtons";
 import { ComputerResult } from "./ComputerResult";
-import { ResultandRestart, WinnerGlow } from "./RPScomponents";
+import { ResultandRestart } from "./RPScomponents";
 import { useEffect, useState, useContext } from "react";
 
 export const Choice = () => {
@@ -25,51 +29,42 @@ export const Choice = () => {
       : playerPick === "paper"
       ? setPaper
       : null;
+
+  // const setTypeHandler = "set" + playerPick;
+
   return (
     <>
       {playerPick && (
         <>
-          <div className="flex h-full align-top z-40 text-white">
-            <div className="[&>*]:animate-RPSPopUp">
-              <h1 className="m-8 text-3xl">You picked</h1>
-
-              {playerPick === "scissors" ? (
-                computerPick === "rock" || computerPick === "scissors" ? (
-                  <GameButton disabled={true} weapon={playerPick} />
-                ) : null
-              ) : playerPick === "rock" ? (
-                computerPick === "scissors" || computerPick === "rock" ? (
-                  <GameButton disabled={true} weapon={playerPick} />
-                ) : null
-              ) : playerPick === "paper" ? (
-                computerPick === "rock" || computerPick === "paper" ? (
-                  <GameButton disabled={true} weapon={playerPick} />
-                ) : null
-              ) : null}
-
-              {(playerPick === "scissors" && computerPick === "paper") ||
-              (playerPick === "rock" && computerPick === "scissors") ||
-              (playerPick === "paper" && computerPick === "rock") ? (
+          <div className="z-40 flex h-full text-white align-top">
+            <div className="">
+              <h1 className="z-50 m-8 text-3xl">You picked</h1>
+              {result === "WIN" ? (
                 <>
-                  <div className="rounded-full w-fit m-auto relative z-40">
+                  <div className="relative z-40 m-auto rounded-full w-fit">
+                    <EmptyGameButton />
                     <div className="[&>*]:animate-RPSPopUpDelayed">
                       <WinnerGlow />
                     </div>
-                    <GameButton disabled={true} weapon={playerPick} />
+                    <div className="[&>*]:animate-fallDown">
+                      <GameButton weapon={playerPick} />
+                    </div>
                   </div>
                 </>
-              ) : null}
+              ) : (
+                <>
+                  <div className="relative">
+                    <EmptyGameButton />
+
+                    <div className="[&>*]:animate-fallDown">
+                      <GameButton weapon={playerPick} />
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
             <ResultandRestart
-              setType={
-                playerPick === "scissors"
-                  ? setScissors
-                  : playerPick === "rock"
-                  ? setRock
-                  : playerPick === "paper"
-                  ? setPaper
-                  : null
-              }
+              setType={setTypeHandler}
               setPlayerPick={setPlayerPick}
               result={result}
             />

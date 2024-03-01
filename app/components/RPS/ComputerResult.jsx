@@ -2,8 +2,11 @@
 
 import { GameContext } from "@/app/data/gameContext";
 import { useContext } from "react";
-import { EmptyGameButton, WinnerGlow } from "./RPScomponents";
-import { GameButton } from "../Buttons/GameButtons";
+import {
+  EmptyGameButton,
+  GameButton,
+  WinnerGlow,
+} from "../Buttons/GameButtons";
 
 export const ComputerResult = () => {
   const { result, computerPick } = useContext(GameContext);

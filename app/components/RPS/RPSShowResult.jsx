@@ -1,12 +1,11 @@
 import { GameContext } from "@/app/data/gameContext";
+import { ResultandRestart } from "./RPScomponents";
+import { useContext } from "react";
 import {
   EmptyGameButton,
-  InactiveGameButton,
-  ResultandRestart,
+  GameButton,
   WinnerGlow,
-} from "./RPScomponents";
-import { useEffect, useState, useContext } from "react";
-import { GameButton } from "../Buttons/GameButtons";
+} from "../Buttons/GameButtons";
 import { ComputerResult } from "./ComputerResult";
 import { Choice } from "./Choice";
 export const RPSShowResult = () => {
@@ -22,9 +21,13 @@ export const RPSShowResult = () => {
     playerPick,
     setPlayerPick,
   } = useContext(GameContext);
+  // const setTypeHandler = "set" + playerPick;
+
+  // console.log(setTypeHandler);
   return (
     <div className="">
-      {playerPick === "paper" && (
+      <Choice />
+      {/* {playerPick === "paper" && (
         <>
           <div className="z-40 flex h-full text-white align-top">
             <div className="">
@@ -141,7 +144,7 @@ export const RPSShowResult = () => {
             <ComputerResult />
           </div>
         </>
-      )}
+      )} */}
 
       {/* {paper || rock || scissors ? (
         <>

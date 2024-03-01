@@ -2,8 +2,9 @@
 
 import { GameContext } from "@/app/data/gameContext";
 import { useContext } from "react";
-import { ActiveGameButton, GameButton } from "../Buttons/GameButtons";
+import { ActiveGameButton } from "../Buttons/GameButtons";
 import PlayRound from "./RPScomponents";
+import { getAllWeaponNames } from "@/app/data/utils";
 
 export const StartingScreen = () => {
   const {
@@ -30,31 +31,30 @@ export const StartingScreen = () => {
 
   return (
     <>
-       {/* <div className="[&>*]:animate-fallDown">
+      {/* <div className="[&>*]:animate-fallDown">
      <GameButton weapon="rock" />
      </div> */}
       {paper || scissors || rock || (
         <>
           <div className="relative z-20 flex items-center justify-center w-full h-full">
             <div className="flex flex-wrap justify-center w-[550px] gap-32 items-center">
-   
               <ActiveGameButton
                 setWeapon={setPaper}
                 weapon="paper"
                 handleButtonClick={handleButtonClick}
               />
-    
+
               <ActiveGameButton
                 setWeapon={setScissors}
                 weapon="scissors"
                 handleButtonClick={handleButtonClick}
               />
- 
-            <ActiveGameButton
+
+              <ActiveGameButton
                 setWeapon={setRock}
                 weapon="rock"
                 handleButtonClick={handleButtonClick}
-              />   
+              />
             </div>
             <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -z-10">
               <img src="/bg-triangle.svg" />

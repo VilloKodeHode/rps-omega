@@ -1,3 +1,7 @@
+
+
+
+
 export const weapons = [
     {
       scissors: ["#eab308", "#a16207"],
@@ -11,11 +15,13 @@ export const weapons = [
   ];
 
   export const weaponsInfo = [
+
     {
       weaponName: "scissors",
       lightColor: "#eab308",
       darkColor: "#a16207",
-      win: ["paper", "lizard", "water"]
+      win: ["paper", "lizard", "water"],
+      // states: [scissors, setScissors],
     },
     {
       weaponName: "rock",
