@@ -3,7 +3,7 @@
 //style
 import "../styles/RockPaperScissor.css";
 
-import PlayRound from "../components/RPS/RPScomponents";
+
 import { StartingScreen } from "../components/RPS/RPSStartingScreen";
 import { GameContext } from "@/app/data/gameContext";
 import { RPSHeader } from "../components/RPS/RPSHeader";
@@ -11,7 +11,8 @@ import { RPSShowResult } from "../components/RPS/RPSShowResult";
 import { useContext, useEffect } from "react";
 import { RPSRules } from "../components/RPS/RPSRules";
 import { Navigation } from "../components/Navigation";
-import { GameButton } from "../components/Buttons/GameButtons";
+
+
 
 export const RockPaperScissors = () => {
   const { setAnimationClass, round, result } = useContext(GameContext);
@@ -38,9 +39,7 @@ export const RockPaperScissors = () => {
         <RPSHeader />
 
         <div className="flex flex-wrap w-full h-full justify-center m-auto [&>*]:animate-RPSPopUp">
-          <StartingScreen PlayRound={PlayRound} />
-
- 
+          <StartingScreen />
             <RPSShowResult />
           
         </div>

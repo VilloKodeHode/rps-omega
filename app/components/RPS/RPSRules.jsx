@@ -2,7 +2,7 @@ import { GameContext } from "@/app/data/gameContext";
 import { useContext } from "react";
 
 
-export const RPSRules = ({}) => {
+export const RPSRules = () => {
     const {
         toggle,
         setToggle,

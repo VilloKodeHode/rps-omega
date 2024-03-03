@@ -3,8 +3,7 @@
 import { GameContext } from "@/app/data/gameContext";
 import { useContext } from "react";
 import { ActiveGameButton } from "../Buttons/GameButtons";
-import PlayRound from "./RPScomponents";
-import { getAllWeaponNames } from "@/app/data/utils";
+import PlayRound from "@/app/logic/GameLogic";
 
 export const StartingScreen = () => {
   const {
@@ -21,19 +20,14 @@ export const StartingScreen = () => {
     setRound,
   } = useContext(GameContext);
 
-  const handleButtonClick = (weapon) => {
-    setPlayerPick(weapon);
-    // setResult(
-    PlayRound({ setComputerPick, setScore, setResult, setPlayerPick }, weapon);
-    // );
+  const handlePlayRound = (weapon) => {
     setRound((round) => round + 1);
+    setPlayerPick(weapon);
+    PlayRound({ setComputerPick, setScore, setResult }, weapon);
   };
 
   return (
     <>
-      {/* <div className="[&>*]:animate-fallDown">
-     <GameButton weapon="rock" />
-     </div> */}
       {paper || scissors || rock || (
         <>
           <div className="relative z-20 flex items-center justify-center w-full h-full">
@@ -41,19 +35,19 @@ export const StartingScreen = () => {
               <ActiveGameButton
                 setWeapon={setPaper}
                 weapon="paper"
-                handleButtonClick={handleButtonClick}
+                handleButtonClick={handlePlayRound}
               />
 
               <ActiveGameButton
                 setWeapon={setScissors}
                 weapon="scissors"
-                handleButtonClick={handleButtonClick}
+                handleButtonClick={handlePlayRound}
               />
 
               <ActiveGameButton
                 setWeapon={setRock}
                 weapon="rock"
-                handleButtonClick={handleButtonClick}
+                handleButtonClick={handlePlayRound}
               />
             </div>
             <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -z-10">
