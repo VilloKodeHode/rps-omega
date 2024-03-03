@@ -2,16 +2,16 @@ export const pagesData = [
     {
         name: "RockPaperScissors",
         path: "/RockPaperScissors",
-        src: "/logo.svg"
+        src: "logo.svg"
     },
     {
         name: "RockPaperScissorsLizardSpock",
         path: "/RockPaperScissorsLizardSpock",
-        src: "/logo-bonus.svg"
+        src: "logo-bonus.svg"
     },
     {
         name: "RockPaperScissorsLizardSpockFireWater",
         path: "/RockPaperScissorsLizardSpockFireWater",
-        src: "/logo-firewater.png"
+        src: "logo-firewater.png"
     },
 ]
