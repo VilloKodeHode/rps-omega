@@ -1,16 +1,17 @@
-"use client"
-
-import { GameContext } from "@/app/data/gameContext";
-import { findWeaponColor, findWeaponInfo } from "@/app/data/utils";
+import {
+  findWeaponColor,
+  findWeaponColorFromMongoDB,
+  findWeaponInfo,
+} from "@/app/data/utils";
 import { weapons, weaponsInfo } from "@/app/data/weapons";
-import { useContext } from "react";
 
 export const GameButton = ({ weapon }) => {
   // console.log(findWeaponInfo(weapon, "defeats").includes("paper"));
 
-  const weaponLightColor = findWeaponColor(weapon, "light");
-  const weaponDarkColor = findWeaponColor(weapon, "dark");
-
+  // const weaponLightColor = findWeaponColor(weapon, "light");
+  // const weaponDarkColor = findWeaponColor(weapon, "dark");
+  const weaponDarkColor = findWeaponColorFromMongoDB(weapon, "dark");
+  const weaponLightColor = findWeaponColorFromMongoDB(weapon, "light");
   return (
     <>
       <div
@@ -33,20 +34,19 @@ export const GameButton = ({ weapon }) => {
   );
 };
 
-export const ActiveGameButton = ({setWeapon, weapon, handleButtonClick}) => {
-
+export const ActiveGameButton = ({ setWeapon, weapon, handleButtonClick }) => {
   return (
     <button
-    onClick={() => {
-      setWeapon(true);
-      handleButtonClick(weapon);
-    }}
-    className="z-50 p-0 rounded-full h-fit"
-  >
-    <GameButton weapon={weapon} />
-  </button>
-  )
-}
+      onClick={() => {
+        setWeapon(true);
+        handleButtonClick(weapon);
+      }}
+      className="z-50 p-0 rounded-full h-fit"
+    >
+      <GameButton weapon={weapon} />
+    </button>
+  );
+};
 
 export function EmptyGameButton({ playerOrComputer }) {
   return (
@@ -397,5 +397,3 @@ export function WaterSmallestGameButton() {
 }
 
 export default ScissorsGameButton;
-
-

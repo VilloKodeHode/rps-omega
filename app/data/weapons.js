@@ -60,3 +60,5 @@ export const weapons = [
     },
   ];
   
+
+// {"_id":{"$oid":"65e6e4cc8729d93fff8ff273"},"weaponName":"scissors","lightColor":"#eab308","darkColor":"#a16207","win":["paper","lizard","water"]}

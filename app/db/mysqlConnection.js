@@ -24,9 +24,9 @@ export default async function handler() {
 
         // console.log(results)
         console.log("results[0]", results[0])
-        console.log("results[1].win", results[1].win)
-        console.log("results[1].map weapons:", results.map((weapon) => weapon.weaponName))
-        console.log((findWeaponInfo("scissors", "win").includes("paper") === true))
+        // console.log("results[1].win", results[1].win)
+        // console.log("results[1].map weapons:", results.map((weapon) => weapon.weaponName))
+        // console.log((findWeaponInfo("scissors", "win").includes("paper") === true))
 
         // res.status(200).json(results)
         dbConnection.end();

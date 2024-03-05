@@ -9,7 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/blob": "^0.22.1",
+    "@vercel/postgres": "^0.7.2",
     "fs": "^0.0.1-security",
+    "mongodb": "^6.4.0",
     "mysql2": "^3.9.2",
     "net": "^1.0.2",
     "next": "^14.1.1",

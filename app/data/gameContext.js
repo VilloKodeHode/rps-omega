@@ -1,6 +1,6 @@
 "use client"
 
-import { createContext, useState, useContext } from "react";
+import { createContext, useState } from "react";
 
 export const GameContext = createContext({
     paper: "", setPaper: () => { },
@@ -13,7 +13,7 @@ export const GameContext = createContext({
     toggle: "", setToggle: () => { },
     animationClass: "", setAnimationClass: () => { },
     round: null, setRound: () => { },
-    test: "test", setTest: () => { },
+    weaponData: null, setWeapondata: () => { },
 })
 
 export const GameContextProvider = ({ children }) => {
@@ -27,7 +27,7 @@ export const GameContextProvider = ({ children }) => {
     const [toggle, setToggle] = useState(false);
     const [animationClass, setAnimationClass] = useState("");
     const [round, setRound] = useState(0);
-    const [test, setTest] = useState("test");
+    const [weaponData, setWeaponData] = useState([]);
     return (
         <GameContext.Provider value={{
             paper, setPaper,
@@ -40,7 +40,7 @@ export const GameContextProvider = ({ children }) => {
             toggle, setToggle,
             animationClass, setAnimationClass,
             round, setRound,
-            test, setTest
+            weaponData, setWeaponData
         }}>{children}
         </GameContext.Provider>
     )
@@ -56,7 +56,7 @@ export const GameContextProvider = ({ children }) => {
 //         result, setResult,
 //         toggle, setToggle,
 //         animationClass, setAnimationClass,
-//         round, setRound, test, setTest } = useContext(GameContext)
+//         round, setRound,    weaponData, setWeaponData } = useContext(GameContext)
 //     return (
 //         {
 //             paper, setPaper,

@@ -8,12 +8,24 @@ export const findWeaponColor = (weapon, lightOrDark) => {
     const weaponInfo = weaponsInfo.find((info) => info.weaponName === weapon);
     return weaponInfo ? weaponInfo[lightOrDark + "Color"] : null;
 };
+export const findWeaponColorFromMongoDB = (weapon, lightOrDark) => {
+    const { weaponData } = useContext(GameContext)
+    const weaponInfo = weaponData.find((info) => info.weaponName === weapon);
+    return weaponInfo ? weaponInfo[lightOrDark + "Color"] : null;
+}
 
 
 export const findWeaponInfo = (weapon, infoToFind) => {
     const weaponInfo = weaponsInfo.find((info) => info.weaponName === weapon)
     return weaponInfo ? weaponInfo[infoToFind] : null;
 };
+
+export const findWeaponInfoFromMongoDB = (weapon, infoToFind) => {
+    const { weaponData } = useContext(GameContext)
+    const weaponInfo = weaponData.find((info) => info.weaponName === weapon)
+    return weaponInfo ? weaponInfo[infoToFind] : null;
+
+}
 
 
 export const updateScore = (result, setScore) => {
