@@ -23,7 +23,7 @@
   
 }
 
-.Button3d {
+.Button3d, .splashScreen {
  
   transform-style: preserve-3d;
   

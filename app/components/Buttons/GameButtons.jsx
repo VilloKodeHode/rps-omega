@@ -1,19 +1,21 @@
+import { GameContext } from "@/app/data/gameContext";
 import {
-  findWeaponColor,
   findWeaponColorFromMongoDB,
-  findWeaponInfo,
 } from "@/app/data/utils";
-import { weapons, weaponsInfo } from "@/app/data/weapons";
+
+import Loading from "@/app/components/RPS/loading";
+import { Suspense, useContext } from "react";
 
 export const GameButton = ({ weapon }) => {
-  // console.log(findWeaponInfo(weapon, "defeats").includes("paper"));
+  const { weaponData } =
+  useContext(GameContext);
 
-  // const weaponLightColor = findWeaponColor(weapon, "light");
-  // const weaponDarkColor = findWeaponColor(weapon, "dark");
-  const weaponDarkColor = findWeaponColorFromMongoDB(weapon, "dark");
-  const weaponLightColor = findWeaponColorFromMongoDB(weapon, "light");
+
+  const weaponDarkColor = weaponData ? findWeaponColorFromMongoDB(weapon, "dark") : "292a2d";
+  const weaponLightColor = weaponData ? findWeaponColorFromMongoDB(weapon, "light") : "292a2d";
   return (
     <>
+      {/* <Suspense fallback={<Loading/>}> */}
       <div
         style={{
           backgroundColor: weaponDarkColor,
@@ -30,6 +32,7 @@ export const GameButton = ({ weapon }) => {
           </div>
         </div>
       </div>
+      {/* </Suspense> */}
     </>
   );
 };

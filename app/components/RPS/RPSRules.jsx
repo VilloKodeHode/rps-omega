@@ -8,7 +8,7 @@ export const RPSRules = () => {
         setToggle,
       } = useContext(GameContext);
     return (
-        <div className="z-50">
+        <div className="z-40">
         <button
           className="absolute p-2 px-6 text-white bg-transparent border-2 border-white shadow-xl hover:bg-transparent hover:border-gray-400 right-6 bottom-6 btn rounded-xl"
           onClick={() => setToggle(!toggle)}

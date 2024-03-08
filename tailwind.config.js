@@ -34,6 +34,16 @@ module.exports = {
           "0%": { opacity: "30%" },
           "100%": { opacity: "100%" },
         },
+        fade: {
+          "0%": { opacity: "100%", display: "flex" },
+          "99%": { opacity: "1%", display: "flex" },
+          "100%": { opacity: "0%", display: "none" },
+
+        },
+        flipOut: {
+          "0%": { transform: "rotateY(0deg) perspective(10px)" },
+          "100%": { transform: "rotateY(90deg) translateX(-100%)" },
+        },
         slideIn: {
           "0%": { transform: "scale(0)", right: "0" },
           "100%": { transform: "scale(1)", right: "50%" },
@@ -60,6 +70,8 @@ module.exports = {
         fallDownDelayed: "fallDown 1.6s 1s linear backwards",
         playerButtonShadow: "buttonShadow 1.5s linear forwards",
         computerButtonShadow: "buttonShadow 2.1s linear forwards",
+        splashScreenFade: "fade 0.3s 1.5s ease-in forwards",
+        splashScreenFlipOut: "flipOut 1.3s 1.5s ease-in forwards",
       },
     },
   },
