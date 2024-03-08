@@ -31,13 +31,16 @@ export const GET = async () => {
         console.log("Data:", data);
 
         // Close the MongoDB connection after using the data
-        await client.close();
-        console.log('Disconnected from MongoDB');
+        
+        
 
         return new NextResponse(console.log("ok"));
     } catch (error) {
         console.error('Error connecting to MongoDB:', error);
         return new NextResponse(console.log("error"));
+    } finally {
+        console.log('Disconnected from MongoDB');
+        await client.close();
     }
 };
 
