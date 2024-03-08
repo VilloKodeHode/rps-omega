@@ -1,4 +1,3 @@
-import { setup } from "@/lib/mongoDB";
 import { MongoClient } from "mongodb";
 
 import { NextResponse } from "next/server";
