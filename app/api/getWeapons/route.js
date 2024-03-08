@@ -40,7 +40,7 @@ export const GET = async () => {
         return new NextResponse(console.log("error"));
     } finally {
         console.log('Disconnected from MongoDB');
-        await client.close();
+        // await client.close();
     }
 };
 
