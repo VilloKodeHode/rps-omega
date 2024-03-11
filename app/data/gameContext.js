@@ -14,6 +14,7 @@ export const GameContext = createContext({
     animationClass: "", setAnimationClass: () => { },
     round: null, setRound: () => { },
     weaponData: null, setWeapondata: () => { },
+    gameType: null, setGameType: () => { },
 })
 
 export const GameContextProvider = ({ children }) => {
@@ -28,6 +29,7 @@ export const GameContextProvider = ({ children }) => {
     const [animationClass, setAnimationClass] = useState("");
     const [round, setRound] = useState(0);
     const [weaponData, setWeaponData] = useState([]);
+    const [gameType, setGameType] = useState("");
     return (
         <GameContext.Provider value={{
             paper, setPaper,
@@ -40,7 +42,8 @@ export const GameContextProvider = ({ children }) => {
             toggle, setToggle,
             animationClass, setAnimationClass,
             round, setRound,
-            weaponData, setWeaponData
+            weaponData, setWeaponData,
+            gameType, setGameType
         }}>{children}
         </GameContext.Provider>
     )

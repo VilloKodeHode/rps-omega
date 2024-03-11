@@ -7,6 +7,7 @@ import { useContext } from "react";
 
 export function ShowResultAndRestart() {
   const { result, playerPick, setScissors, setRock, setPaper, setPlayerPick } = useContext(GameContext);
+  // TODO can setType be shortend and improved so its dynamic when other weapons are added?
   const setType =
   playerPick === "scissors"
     ? setScissors

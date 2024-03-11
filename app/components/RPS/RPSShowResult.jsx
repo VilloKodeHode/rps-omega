@@ -5,7 +5,7 @@ import { ComputerResult } from "./ComputerResult";
 import { PlayerResult } from "./PlayerResult";
 export const RPSShowResult = () => {
   const { playerPick } = useContext(GameContext);
-
+// TODO: check if this or Choice is needed
   return (
     <>
       <div>

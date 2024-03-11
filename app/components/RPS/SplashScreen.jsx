@@ -16,6 +16,7 @@ export const RPSSplashScreen = () => {
         <div
           className={`splashScreen  flex flex-col items-center justify-center bg-black w-full h-full overflow-hidden  gap-16  `}
         >
+          {/* //TODO Make this dynamic so the other logoes will show up as well (when changing url?) */}
           <Image
             src="/logo.svg"
             alt="logo"

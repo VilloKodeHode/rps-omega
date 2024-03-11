@@ -1,4 +1,4 @@
-import { findWeaponInfo, randomWeapon, updateScore } from "@/app/data/utils";
+import { findWeaponInfo, findWeaponInfoFromMongoDB, randomWeapon, updateScore } from "@/app/data/utils";
 
 export function PlayRound(
     { setComputerPick, setScore, setResult },
@@ -11,8 +11,9 @@ export function PlayRound(
   
     let result;
   
-    if (findWeaponInfo(playerPick, "win").includes(computerPick) === true) {
+    if (findWeaponInfoFromMongoDB(playerPick, "win").includes(computerPick) === true) {
       result = "WIN";
+      //TODO update score can be moved down so its only needed once? The line before setResult?
       updateScore(result, setScore);
     } else if (computerPick !== playerPick) {
       result = "LOSE";

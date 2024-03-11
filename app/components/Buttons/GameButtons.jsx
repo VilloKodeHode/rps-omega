@@ -2,9 +2,10 @@ import { GameContext } from "@/app/data/gameContext";
 import {
   findWeaponColorFromMongoDB,
 } from "@/app/data/utils";
-
 import Loading from "@/app/components/RPS/loading";
 import { Suspense, useContext } from "react";
+
+// TODO: Make the buttons change size when adding more weapons on the screen?
 
 export const GameButton = ({ weapon }) => {
   const { weaponData } =

@@ -11,7 +11,7 @@ import { PlayerResult } from "./PlayerResult";
 
 export const Choice = () => {
   const { playerPick } = useContext(GameContext);
-
+// TODO: check if this or RPSShowResult is needed
 
   return (
     <>

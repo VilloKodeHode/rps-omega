@@ -18,6 +18,7 @@ export const RockPaperScissors = ({ data }) => {
   const { setAnimationClass, round, result, setWeaponData, weaponData } =
     useContext(GameContext);
 
+    
   useEffect(() => {
     setWeaponData(data);
     console.log(weaponData)
