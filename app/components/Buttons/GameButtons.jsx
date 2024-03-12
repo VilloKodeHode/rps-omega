@@ -1,23 +1,24 @@
 import { GameContext } from "@/app/data/gameContext";
-import {
-  findWeaponColorFromMongoDB,
-} from "@/app/data/utils";
+import { findWeaponColorFromMongoDB } from "@/app/data/utils";
 import Loading from "@/app/components/RPS/loading";
-import { Suspense, useContext } from "react";
+import { Suspense, useContext, useEffect } from "react";
 
 // TODO: Make the buttons change size when adding more weapons on the screen?
 
 export const GameButton = ({ weapon }) => {
-  const { weaponData } =
-  useContext(GameContext);
+  const { weaponData } = useContext(GameContext);
 
-
-  const weaponDarkColor = weaponData ? findWeaponColorFromMongoDB(weapon, "dark") : "292a2d";
-  const weaponLightColor = weaponData ? findWeaponColorFromMongoDB(weapon, "light") : "292a2d";
+  const weaponDarkColor = weaponData
+    ? findWeaponColorFromMongoDB(weapon, "dark")
+    : "292a2d";
+  const weaponLightColor = weaponData
+    ? findWeaponColorFromMongoDB(weapon, "light")
+    : "292a2d";
   return (
     <>
       {/* <Suspense fallback={<Loading/>}> */}
       <div
+     
         style={{
           backgroundColor: weaponDarkColor,
           borderColor: weaponDarkColor,
@@ -38,14 +39,14 @@ export const GameButton = ({ weapon }) => {
   );
 };
 
-export const ActiveGameButton = ({ setWeapon, weapon, handleButtonClick }) => {
+export const ActiveGameButton = ({ weapon, handlePlayRound }) => {
   return (
     <button
-      onClick={() => {
-        setWeapon(true);
-        handleButtonClick(weapon);
+    id={weapon+"Button"}
+      onClick={() => {  
+        handlePlayRound(weapon);
       }}
-      className="z-50 p-0 rounded-full h-fit"
+      className="z-50 p-0 rounded-full w-fit h-fit"
     >
       <GameButton weapon={weapon} />
     </button>

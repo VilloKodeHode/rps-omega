@@ -1,17 +1,22 @@
-export const pagesData = [
+export const gamesData = [
     {
         name: "RockPaperScissors",
-        path: "/RockPaperScissors",
+        game: "RPS",
         src: "logo.svg"
     },
     {
         name: "RockPaperScissorsLizardSpock",
-        path: "/RockPaperScissorsLizardSpock",
+        game: "RPSLS",
         src: "logo-bonus.svg"
     },
     {
         name: "RockPaperScissorsLizardSpockFireWater",
-        path: "/RockPaperScissorsLizardSpockFireWater",
+        game: "RPSLSFW",
         src: "logo-firewater.png"
     },
+    // {
+    //     name: "RPS-OMEGA",
+    //     game: "/RPS-OMEGA",
+    //     src: "logo-firewater.png"
+    // },
 ]

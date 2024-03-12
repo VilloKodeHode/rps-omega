@@ -1,21 +1,17 @@
-"use client"
+"use client";
 
 import { GameContext } from "@/app/data/gameContext";
+import { weaponSetters } from "@/app/data/utils";
 import { useContext } from "react";
 
-
-
 export function ShowResultAndRestart() {
-  const { result, playerPick, setScissors, setRock, setPaper, setPlayerPick } = useContext(GameContext);
-  // TODO can setType be shortend and improved so its dynamic when other weapons are added?
-  const setType =
-  playerPick === "scissors"
-    ? setScissors
-    : playerPick === "rock"
-    ? setRock
-    : playerPick === "paper"
-    ? setPaper
-    : null;
+  const { result, playerPick, setPlayerPick } =
+    useContext(GameContext);
+
+  //TODO can setType be shortend and improved so its dynamic when other weapons are added?
+
+const setType = GameContext._currentValue["set"+playerPick.charAt(0).toUpperCase() + playerPick.slice(1)]
+
   return (
     <div className="z-50 flex flex-col justify-center mx-8 [&>*]:animate-RPSPopUpResult">
       <h1 className="text-6xl text-center">
@@ -26,7 +22,7 @@ export function ShowResultAndRestart() {
         className="z-50 p-2 px-10 m-8 tracking-widest text-red-600 bg-white h-fit w-fit text-md"
         onClick={() => {
           setType(false);
-          setPlayerPick("")
+          setPlayerPick("");
         }}
       >
         PLAY AGAIN
@@ -34,4 +30,3 @@ export function ShowResultAndRestart() {
     </div>
   );
 }
-

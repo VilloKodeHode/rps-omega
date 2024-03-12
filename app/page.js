@@ -2,6 +2,8 @@ import { RockPaperScissors } from "./pages/RPSpage";
 import {  GameContextProvider } from "./data/gameContext";
 import { setup } from "@/lib/mongoDB";
 import { RPSSplashScreen } from "./components/RPS/SplashScreen";
+import { setCookie } from "cookies-next";
+
 
 
 

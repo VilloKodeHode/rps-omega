@@ -3,7 +3,6 @@
 //style
 import "../styles/RockPaperScissor.css";
 
-
 import { StartingScreen } from "../components/RPS/RPSStartingScreen";
 import { GameContext } from "@/app/data/gameContext";
 import { RPSHeader } from "../components/RPS/RPSHeader";
@@ -13,17 +12,27 @@ import { RPSRules } from "../components/RPS/RPSRules";
 import { Navigation } from "../components/Navigation";
 import Loading from "../components/RPS/loading";
 
-
 export const RockPaperScissors = ({ data }) => {
   const { setAnimationClass, round, result, setWeaponData, weaponData } =
     useContext(GameContext);
 
-    
   useEffect(() => {
     setWeaponData(data);
-    console.log(weaponData)
   }, [data]);
 
+  // //set useState for fetched data and cookies
+  // useEffect(() => {
+
+  //   const updateCookie = async () => {
+  //     deleteCookie("data");
+  //     setFetchedDataToCookie("data", data)
+  //     setWeaponData(getCookieData("data"));
+
+  //     console.log("weaponData", weaponData);
+  //   };
+
+  //   updateCookie();
+  // }, [data]);
 
   useEffect(() => {
     console.log("Result is: " + result);
@@ -47,9 +56,8 @@ export const RockPaperScissors = ({ data }) => {
         <RPSHeader />
 
         <div className="flex flex-wrap w-full h-full justify-center m-auto [&>*]:animate-RPSPopUp">
-    
           <StartingScreen />
-    
+
           <RPSShowResult />
         </div>
         <RPSRules />

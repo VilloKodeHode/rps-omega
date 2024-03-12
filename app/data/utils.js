@@ -20,8 +20,7 @@ export const findWeaponInfo = (weapon, infoToFind) => {
     return weaponInfo ? weaponInfo[infoToFind] : null;
 };
 
-export const findWeaponInfoFromMongoDB = (weapon, infoToFind) => {
-    const { weaponData } = useContext(GameContext)
+export const findWeaponInfoFromMongoDB = (weaponData ,weapon, infoToFind) => {
     const weaponInfo = weaponData.find((info) => info.weaponName === weapon)
     return weaponInfo ? weaponInfo[infoToFind] : null;
 
@@ -44,7 +43,7 @@ export const randomWeapon = (numOfWeapons) => weaponsInfo[Math.floor(Math.random
 
 export const getAllWeaponNames = () => weaponsInfo.map((weapon) => weapon.weaponName)
 
-export const weaponsToUse = () => {
-    const { gameType } = useContext(GameContext)
+export const weaponsToUse = (gameType) => {
 return getAllWeaponNames().slice(0, gameType === "RPS" ? 3 : gameType === "RPSLS" ? 5 : gameType === "RPSLSFW" ? 7 : gameType === "RPS-OMEGA" ? 9 : null)
 }
+
