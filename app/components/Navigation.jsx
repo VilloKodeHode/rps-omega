@@ -4,6 +4,7 @@ import Link from "next/link";
 import { gamesData } from "../data/pagesData";
 import { useContext, useEffect } from "react";
 import { GameContext } from "../data/gameContext";
+import { weaponsInfo } from "../data/weapons";
 
 export const Navigation = () => {
   const {
@@ -15,6 +16,8 @@ export const Navigation = () => {
     setGameType("RPS")
     console.log("game type is: ", gameType)
   }, []);
+
+
   return (
     <>
       <nav className="absolute z-40 grid gap-4 p-2 m-2 top-2 right-2 h-fit w-fit">

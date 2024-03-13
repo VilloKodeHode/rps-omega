@@ -1,5 +1,5 @@
 import { GameContext } from "@/app/data/gameContext";
-import { findWeaponColorFromMongoDB } from "@/app/data/utils";
+import { findWeaponColor, findWeaponColorFromMongoDB } from "@/app/data/utils";
 import Loading from "@/app/components/RPS/loading";
 import { Suspense, useContext, useEffect } from "react";
 
@@ -52,6 +52,39 @@ export const ActiveGameButton = ({ weapon, handlePlayRound }) => {
     </button>
   );
 };
+
+export const TestButton = ({ weapon }) => {
+  
+
+  const weaponDarkColor = findWeaponColor(weapon, "dark")
+
+  const weaponLightColor = findWeaponColor(weapon, "light")
+   
+  return (
+    <>
+      {/* <Suspense fallback={<Loading/>}> */}
+      <div
+     
+        style={{
+          backgroundColor: weaponDarkColor,
+          borderColor: weaponDarkColor,
+        }}
+        className={`m-auto Button3d border-b-8 h-fit w-fit rounded-full z-40 `}
+      >
+        <div
+          style={{ borderColor: weaponLightColor }}
+          className={`rounded-full h-fit w-fit p-10 bg-white border-[22px] buttonshadow`}
+        >
+          <div className="relative flex w-20 h-20">
+            <img className="z-20 w-16 m-auto" src={`/icon-${weapon}.svg`} />
+          </div>
+        </div>
+      </div>
+      {/* </Suspense> */}
+    </>
+  );
+};
+
 
 export function EmptyGameButton({ playerOrComputer }) {
   return (

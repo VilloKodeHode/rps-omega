@@ -10,6 +10,8 @@ export const GameContext = createContext({
     spock: "", setSpock: () => { },
     fire: "", setFire: () => { },
     water: "", setWater: () => { },
+    earth: "", setEarth: () => { },
+    air: "", setAir: () => { },
     playerPick: "", setPlayerPick: () => { },
     computerPick: "", setComputerPick: () => { },
     score: null, setScore: () => { },
@@ -29,6 +31,8 @@ export const GameContextProvider = ({ children }) => {
     const [spock, setSpock] = useState(false);
     const [fire, setFire] = useState(false);
     const [water, setWater] = useState(false);
+    const [earth, setEarth] = useState(false);
+    const [air, setAir] = useState(false);
     const [playerPick, setPlayerPick] = useState("");
     const [computerPick, setComputerPick] = useState("");
     const [score, setScore] = useState(0);
@@ -47,6 +51,8 @@ export const GameContextProvider = ({ children }) => {
         spock, setSpock,
         fire, setFire,
         water, setWater,
+        earth, setEarth,
+        air, setAir,
         playerPick, setPlayerPick,
         computerPick, setComputerPick,
         score, setScore,

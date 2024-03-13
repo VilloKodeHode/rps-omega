@@ -3,6 +3,8 @@ import {  GameContextProvider } from "./data/gameContext";
 import { setup } from "@/lib/mongoDB";
 import { RPSSplashScreen } from "./components/RPS/SplashScreen";
 import { setCookie } from "cookies-next";
+import { weaponsInfo } from "./data/weapons";
+import { testGameLogic } from "./test/gameLogicTest";
 
 
 
@@ -13,7 +15,10 @@ export default async function Home() {
   const fetchWeaponInfo = await setup()
 
 
-  
+testGameLogic()
+
+
+
   return (
 
     <GameContextProvider>

@@ -1,6 +1,6 @@
 import { GameContext } from "@/app/data/gameContext";
 import { useContext, useEffect } from "react";
-import { ActiveGameButton } from "../Buttons/GameButtons";
+import { ActiveGameButton, GameButton, TestButton } from "../Buttons/GameButtons";
 import PlayRound from "@/app/logic/GameLogic";
 import {
   findWeaponInfo,
@@ -32,8 +32,6 @@ export const StartingScreen = () => {
     PlayRound({ setComputerPick, setScore, setResult, weaponData }, weapon);
   };
 
-  //TODO: Logic should be moved up and be dynamic with current url
-
   return (
     <>
       {!playerPick && (
@@ -56,8 +54,10 @@ export const StartingScreen = () => {
                 ))}
               </>
             </div>
-            <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -z-10">
-              {/*//TODO: Improve this logic so it can be dynamic with a useState instead. Should be linked with gameType a different way (link the two useStates? Or extent gameType to have two values?) */}
+                {/*//TODO: Improve this logic so it can be dynamic with a useState instead. Should be linked with gameType a different way (link the two useStates? Or extent gameType to have two values?) */}
+                {/* Removed. Will be used later if I can find a good way to place the different buttons to the shapes */}
+            {/* <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -z-10">
+          
               <img
                 src={`/bg-${
                   gameType === "RPS"
@@ -67,7 +67,7 @@ export const StartingScreen = () => {
                     : "heptagon"
                 }.svg`}
               />
-            </div>
+            </div> */}
           </div>
         </>
       )}

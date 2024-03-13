@@ -8,7 +8,8 @@ export function ShowResultAndRestart() {
   const { result, playerPick, setPlayerPick } =
     useContext(GameContext);
 
-  //TODO can setType be shortend and improved so its dynamic when other weapons are added?
+  // TODO (DONE) can setType be shortend and improved so its dynamic when other weapons are added?
+  //TODO Test if the new implementation of setType has any errors
 
 const setType = GameContext._currentValue["set"+playerPick.charAt(0).toUpperCase() + playerPick.slice(1)]
 

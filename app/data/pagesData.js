@@ -14,9 +14,9 @@ export const gamesData = [
         game: "RPSLSFW",
         src: "logo-firewater.png"
     },
-    // {
-    //     name: "RPS-OMEGA",
-    //     game: "/RPS-OMEGA",
-    //     src: "logo-firewater.png"
-    // },
+    {
+        name: "RPS-OMEGA",
+        game: "RPS-OMEGA",
+        src: "logo-omega.svg"
+    },
 ]
