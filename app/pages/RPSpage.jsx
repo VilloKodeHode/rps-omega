@@ -7,19 +7,19 @@ import { StartingScreen } from "../components/RPS/RPSStartingScreen";
 import { GameContext } from "@/app/data/gameContext";
 import { RPSHeader } from "../components/RPS/RPSHeader";
 import { RPSShowResult } from "../components/RPS/RPSShowResult";
-import { Suspense, useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { RPSRules } from "../components/RPS/RPSRules";
 import { Navigation } from "../components/Navigation";
-import Loading from "../components/RPS/loading";
 
 export const RockPaperScissors = ({ data }) => {
   const { setAnimationClass, round, result, setWeaponData, weaponData } =
     useContext(GameContext);
-
+//TODO can i reduce the amount of useEffects?
   useEffect(() => {
     setWeaponData(data);
   }, [data]);
 
+  //TODO maybe try to fix cookies?
   // //set useState for fetched data and cookies
   // useEffect(() => {
 

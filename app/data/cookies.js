@@ -8,11 +8,11 @@ export const setFetchedDataToCookie = (key, data) => {
 
 
 export const getCookieData = (key) => {
-try {
-   return JSON.parse(getCookie(key))
-} catch(error) {
-    console.log("PARSE error:",error)
-    return null;
-}
-    
+    try {
+        return JSON.parse(getCookie(key))
+    } catch (error) {
+        console.log("PARSE error:", error)
+        return null;
+    }
+
 }

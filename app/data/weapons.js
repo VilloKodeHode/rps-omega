@@ -1,7 +1,7 @@
+//! Not activly in use. Used sometimes for testing
 
 
-
-
+// old database, colors only:
 export const weapons = [
   {
     scissors: ["#eab308", "#a16207"],
@@ -14,6 +14,7 @@ export const weapons = [
   },
 ];
 
+// Used as a tester to check if the data is working:
 export const weaponsInfo = [
   {
     weaponName: 'scissors',
@@ -33,7 +34,7 @@ export const weaponsInfo = [
     weaponName: 'paper',
     lightColor: '#3b82f6',
     darkColor: '#1d4ed8',
-    win: ['rock', 'spock', 'water', "air"], 
+    win: ['rock', 'spock', 'water', "air"],
     loss: ['scissors', 'lizard', 'fire', "earth"]
   },
   {

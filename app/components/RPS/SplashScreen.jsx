@@ -9,6 +9,7 @@ export const RPSSplashScreen = () => {
 
   return (
     <>
+    {/* //TODO see if the splash screen can active until the fetching of the data is done */}
       {/* {!weaponData && ( */}
       <div className={`absolute z-50 w-screen h-screen origin-left translate-x-1/2 -translate-y-1/2 top-1/2 -left-1/2 ${
             weaponData ? "animate-splashScreenFade" : null
@@ -16,7 +17,7 @@ export const RPSSplashScreen = () => {
         <div
           className={`splashScreen  flex flex-col items-center justify-center bg-black w-full h-full overflow-hidden  gap-16  `}
         >
-          {/* //TODO Make this dynamic so the other logoes will show up as well (when changing url?) */}
+          {/* //TODO Make this dynamic so the other logoes will show up as well (when changing gameType) */}
           <Image
             src="/logo.svg"
             alt="logo"

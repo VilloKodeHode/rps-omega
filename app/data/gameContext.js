@@ -84,7 +84,7 @@ export const GameContextProvider = ({ children }) => {
 //     gameType, setGameType]
 
 export const useGameContext = () => {
-    const {       paper, setPaper,
+    const { paper, setPaper,
         scissors, setScissors,
         rock, setRock,
         playerPick, setPlayerPick,

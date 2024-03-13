@@ -1,17 +1,18 @@
 "use client";
 
 import { GameContext } from "@/app/data/gameContext";
-import { weaponSetters } from "@/app/data/utils";
 import { useContext } from "react";
 
 export function ShowResultAndRestart() {
-  const { result, playerPick, setPlayerPick } =
-    useContext(GameContext);
+  const { result, playerPick, setPlayerPick } = useContext(GameContext);
 
   // TODO (DONE) can setType be shortend and improved so its dynamic when other weapons are added?
   //TODO Test if the new implementation of setType has any errors
-
-const setType = GameContext._currentValue["set"+playerPick.charAt(0).toUpperCase() + playerPick.slice(1)]
+  //TODO make a function for capitalizing (or is there js existing for this?)
+  const setType =
+    GameContext._currentValue[
+      "set" + playerPick.charAt(0).toUpperCase() + playerPick.slice(1)
+    ];
 
   return (
     <div className="z-50 flex flex-col justify-center mx-8 [&>*]:animate-RPSPopUpResult">

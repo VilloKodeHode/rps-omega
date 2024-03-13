@@ -1,4 +1,4 @@
-
+//! Not in use. Used for testing connection to an old database no longer in use.
 
 import serverlessMysql from "serverless-mysql";
 import mysql from "mysql2/promise"

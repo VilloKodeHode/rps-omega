@@ -1,12 +1,9 @@
+//! not currently in use. RPSShowResult is used instead
+
 import { GameContext } from "@/app/data/gameContext";
-import {
-  EmptyGameButton,
-  GameButton,
-  WinnerGlow,
-} from "../Buttons/GameButtons";
 import { ComputerResult } from "./ComputerResult";
 import { ShowResultAndRestart } from "./ShowResultAndRestart";
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 import { PlayerResult } from "./PlayerResult";
 
 export const Choice = () => {

@@ -2,9 +2,11 @@
 
 #RPS {
   font-family: "Barlow Semi Condensed", sans-serif;
-  background-image: radial-gradient(circle at center top,
-      hsl(214, 47%, 23%),
-      hsl(237, 49%, 15%));
+  background-image: radial-gradient(
+    circle at center top,
+    hsl(214, 47%, 23%),
+    hsl(237, 49%, 15%)
+  );
   display: grid;
   grid-template-rows: 1fr 3fr;
 }
@@ -18,15 +20,14 @@
 
 .buttonshadow {
   box-shadow: rgba(0, 0, 0, 0.171) inset 0px 3px 0px 3px;
-
 }
 
 .Button3d,
 .splashScreen {
-
   transform-style: preserve-3d;
-
 }
+
+/*! everything below is unused: */
 
 .RPSLS-area {
   display: grid;
@@ -41,33 +42,37 @@
     "scissorsButton      scissorsButton     scissorsButton"
     "spockButton    empty       paperButton"
     "lizardButton   empty        rockButton";
-
 }
 
-#scissorsButton, #one {
+#scissorsButton,
+#one {
   grid-area: scissorsButton;
   grid-column-start: 2;
   grid-column-end: 4;
   /* transform: translateY(-30px); */
 }
 
-#rockButton, #two {
+#rockButton,
+#two {
   grid-area: rockButton;
   /* transform: translateX(-30px) translateY(30px); */
 }
 
-#paperButton, #three {
+#paperButton,
+#three {
   grid-area: paperButton;
   /* transform: translateX(30px) translateY(-30px); */
 }
 
-#lizardButton, #four {
+#lizardButton,
+#four {
   grid-area: lizardButton;
   /* transform: translateX(30px) translateY(30px); */
 }
 
-#spockButton, #five {
+#spockButton,
+#five {
   grid-area: spockButton;
-  
+
   /* transform: translateX(-30px) translateY(-30px); */
 }
