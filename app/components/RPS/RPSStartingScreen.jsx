@@ -1,12 +1,17 @@
 import { GameContext } from "@/app/data/gameContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ActiveGameButton } from "../Buttons/GameButtons";
 import PlayRound from "@/app/logic/GameLogic";
-import { weaponsToUse } from "@/app/data/utils";
+import {
+  findWeaponInfo,
+  findWeaponInfoFromMongoDB,
+  weaponsToUse,
+} from "@/app/data/utils";
 
 export const StartingScreen = () => {
   const {
     playerPick,
+    computerPick,
     setPlayerPick,
     setComputerPick,
     setScore,
@@ -15,6 +20,24 @@ export const StartingScreen = () => {
     weaponData,
     gameType,
   } = useContext(GameContext);
+  const winText = findWeaponInfoFromMongoDB(weaponData, playerPick, "winText");
+  const lossText = findWeaponInfoFromMongoDB(weaponData, computerPick, "winText");
+  useEffect(() => {
+    const findCorrectWinText = winText && computerPick in winText;
+
+    let showCorrectText;
+    if (playerPick && computerPick) {
+      showCorrectText =
+        playerPick !== computerPick
+          ? findCorrectWinText
+            ? winText[computerPick]
+            : lossText[playerPick]
+          : "DRAW";
+    } else {
+      showCorrectText = "Waiting for player pick...";
+    }
+    console.log(showCorrectText);
+  }, [playerPick]);
 
   const handlePlayRound = (weapon) => {
     setRound((round) => round + 1);
@@ -26,7 +49,10 @@ export const StartingScreen = () => {
       ];
     setType(true);
     //TODO: Can this be improved and removed here?
-    PlayRound({ setComputerPick, setScore, setResult, gameType, weaponData }, weapon);
+    PlayRound(
+      { setComputerPick, setScore, setResult, gameType, weaponData },
+      weapon
+    );
   };
 
   return (

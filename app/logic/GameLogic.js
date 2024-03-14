@@ -5,10 +5,11 @@ export function PlayRound(
   playerPick
 ) {
 
-  //TODO randomWeapon needs to change according to number of used weapons
+  //TODO improve logic
   const computerPick = randomWeapon(gameType === "RPS" ? 3 : gameType === "RPSLS" ? 5 : gameType === "RPSLSFW" ? 7 : gameType === "OMEGA" ? 9 : null);
 
   setComputerPick(computerPick);
+
 
   let result;
   findWeaponInfoFromMongoDB(weaponData, playerPick, "win").includes(computerPick) === true 
