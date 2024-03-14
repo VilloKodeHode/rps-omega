@@ -12,7 +12,7 @@ import { RPSRules } from "../components/RPS/RPSRules";
 import { Navigation } from "../components/Navigation";
 
 export const RockPaperScissors = ({ data }) => {
-  const { setAnimationClass, round, result, setWeaponData, weaponData } =
+  const { setAnimationClass, round, result, setWeaponData, playerPick, computerPick } =
     useContext(GameContext);
 //TODO can i reduce the amount of useEffects?
   useEffect(() => {
@@ -48,6 +48,9 @@ export const RockPaperScissors = ({ data }) => {
 
   return (
     <>
+    <div className="absolute top-0 left-0 z-20 p-8 m-8 bg-white max-w-36">
+      <p>{playerPick} {computerPick}</p>
+    </div>
       <Navigation />
       <div
         id="RPS"

@@ -1,27 +1,23 @@
 import { findWeaponInfoFromMongoDB, randomWeapon, updateScore } from "@/app/data/utils";
 
 export function PlayRound(
-  { setComputerPick, setScore, setResult, weaponData },
+  { setComputerPick, setScore, setResult, weaponData, gameType },
   playerPick
 ) {
 
-  const computerPick = randomWeapon(3);
+  //TODO randomWeapon needs to change according to number of used weapons
+  const computerPick = randomWeapon(gameType === "RPS" ? 3 : gameType === "RPSLS" ? 5 : gameType === "RPSLSFW" ? 7 : gameType === "OMEGA" ? 9 : null);
 
   setComputerPick(computerPick);
 
   let result;
-//TODO check if this can be shortned with ? syntax:
-  if (findWeaponInfoFromMongoDB(weaponData, playerPick, "win").includes(computerPick) === true) {
-    result = "WIN";
-    //TODO update score can be moved down so its only needed once? The line before setResult?
-    updateScore(result, setScore);
-  } else if (computerPick !== playerPick) {
-    result = "LOSE";
+  findWeaponInfoFromMongoDB(weaponData, playerPick, "win").includes(computerPick) === true 
+  ? result = "WIN" 
+  : computerPick !== playerPick 
+  ? result = "LOSE" 
+  : result = "DRAW";
 
-    updateScore(result, setScore);
-  } else {
-    result = "DRAW";
-  }
+  updateScore(result, setScore);
   setResult(result);
 
   return result;

@@ -26,7 +26,7 @@ export const StartingScreen = () => {
       ];
     setType(true);
     //TODO: Can this be improved and removed here?
-    PlayRound({ setComputerPick, setScore, setResult, weaponData }, weapon);
+    PlayRound({ setComputerPick, setScore, setResult, gameType, weaponData }, weapon);
   };
 
   return (

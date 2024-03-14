@@ -2,6 +2,12 @@
 
 import { createContext, useContext, useState } from "react";
 
+// Defining all useStates in GameContext seems redundant, but makes it easier to refer to the states. Example: 
+/*    const setType =
+GameContext._currentValue[
+    `set${weapon.charAt(0).toUpperCase()}${weapon.slice(1)}`
+  ];*/
+
 export const GameContext = createContext({
     paper: "", setPaper: () => { },
     scissors: "", setScissors: () => { },
@@ -70,19 +76,8 @@ export const GameContextProvider = ({ children }) => {
     )
 }
 
-// export const states = [paper, setPaper,
-//     scissors, setScissors,
-//     rock, setRock,
-//     playerPick, setPlayerPick,
-//     computerPick, setComputerPick,
-//     score, setScore,
-//     result, setResult,
-//     toggle, setToggle,
-//     animationClass, setAnimationClass,
-//     round, setRound,
-//     weaponData, setWeaponData,
-//     gameType, setGameType]
 
+//! Not in use:
 export const useGameContext = () => {
     const { paper, setPaper,
         scissors, setScissors,

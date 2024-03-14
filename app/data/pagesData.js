@@ -2,21 +2,21 @@ export const gamesData = [
     {
         name: "RockPaperScissors",
         game: "RPS",
-        src: "logo.svg"
+        src: "logo-RPS.svg"
     },
     {
         name: "RockPaperScissorsLizardSpock",
         game: "RPSLS",
-        src: "logo-bonus.svg"
+        src: "logo-RPSLS.svg"
     },
     {
         name: "RockPaperScissorsLizardSpockFireWater",
         game: "RPSLSFW",
-        src: "logo-firewater.png"
+        src: "logo-RPSLSFW.svg"
     },
     {
         name: "RPS-OMEGA",
-        game: "RPS-OMEGA",
-        src: "logo-omega.svg"
+        game: "OMEGA",
+        src: "logo-OMEGA.svg"
     },
 ]

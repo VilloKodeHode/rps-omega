@@ -44,6 +44,6 @@ export const randomWeapon = (numOfWeapons) => weaponsInfo[Math.floor(Math.random
 export const getAllWeaponNames = () => weaponsInfo.map((weapon) => weapon.weaponName)
 
 export const weaponsToUse = (gameType) => {
-    return getAllWeaponNames().slice(0, gameType === "RPS" ? 3 : gameType === "RPSLS" ? 5 : gameType === "RPSLSFW" ? 7 : gameType === "RPS-OMEGA" ? 9 : null)
+    return getAllWeaponNames().slice(0, gameType === "RPS" ? 3 : gameType === "RPSLS" ? 5 : gameType === "RPSLSFW" ? 7 : gameType === "OMEGA" ? 9 : null)
 }
 
