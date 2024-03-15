@@ -22,7 +22,7 @@ export const StartingScreen = () => {
     setResultText,
     hoveredWeapon
   } = useContext(GameContext);
-
+//TODO See if logic can be moved away from here:
   const winText = findWeaponInfoFromMongoDB(weaponData, playerPick, "winText");
   const lossText = findWeaponInfoFromMongoDB(weaponData, computerPick, "winText");
   useEffect(() => {
@@ -57,7 +57,7 @@ export const StartingScreen = () => {
         `set${weapon.charAt(0).toUpperCase()}${weapon.slice(1)}`
       ];
     setType(true);
-    //TODO: Can this be improved and removed here?
+    //TODO: Can this be improved and removed here? Meaning the propping...
     PlayRound(
       { setComputerPick, setScore, setResult, gameType, weaponData },
       weapon

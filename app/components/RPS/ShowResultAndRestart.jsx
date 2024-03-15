@@ -4,7 +4,7 @@ import { GameContext } from "@/app/data/gameContext";
 import { useContext } from "react";
 
 export function ShowResultAndRestart() {
-  const { result, playerPick, setPlayerPick, resultText } = useContext(GameContext);
+  const { result, playerPick, setPlayerPick, resultText, setComputerPick } = useContext(GameContext);
 
   // TODO (DONE) can setType be shortend and improved so its dynamic when other weapons are added?
   //TODO Test if the new implementation of setType has any errors
@@ -33,6 +33,7 @@ export function ShowResultAndRestart() {
         onClick={() => {
           setType(false);
           setPlayerPick("");
+          setComputerPick("");
         }}
       >
         PLAY AGAIN

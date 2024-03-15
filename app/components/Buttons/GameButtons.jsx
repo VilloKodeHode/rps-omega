@@ -43,6 +43,7 @@ export const GameButton = ({ weapon }) => {
 };
 
 export const ActiveGameButton = ({ weapon, handlePlayRound, className }) => {
+  //TODO See if logic can be improved. Do I need yet another useState for this?
   const { setHoveredWeapon, weaponData, hoveredWeapon } = useContext(GameContext);
   const lossAgainst = findWeaponInfoFromMongoDB(weaponData, weapon, "loss");
 
