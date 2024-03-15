@@ -1,5 +1,9 @@
 import { GameContext } from "@/app/data/gameContext";
-import { findWeaponColor, findWeaponColorFromMongoDB } from "@/app/data/utils";
+import {
+  findWeaponColor,
+  findWeaponColorFromMongoDB,
+  findWeaponInfoFromMongoDB,
+} from "@/app/data/utils";
 import Loading from "@/app/components/RPS/loading";
 import { Suspense, useContext, useEffect } from "react";
 
@@ -18,7 +22,6 @@ export const GameButton = ({ weapon }) => {
     <>
       {/* <Suspense fallback={<Loading/>}> */}
       <div
-     
         style={{
           backgroundColor: weaponDarkColor,
           borderColor: weaponDarkColor,
@@ -39,32 +42,39 @@ export const GameButton = ({ weapon }) => {
   );
 };
 
-export const ActiveGameButton = ({ weapon, handlePlayRound }) => {
+export const ActiveGameButton = ({ weapon, handlePlayRound, className }) => {
+  const { setHoveredWeapon, weaponData, hoveredWeapon } = useContext(GameContext);
+  const lossAgainst = findWeaponInfoFromMongoDB(weaponData, weapon, "loss");
+
+
   return (
     <button
-    id={weapon+"Button"}
-      onClick={() => {  
+      id={weapon + "Button"}
+      onClick={() => {
         handlePlayRound(weapon);
       }}
-      className="z-50 p-0 rounded-full w-fit h-fit"
+      onMouseEnter={() => {
+        setHoveredWeapon(weapon);
+        console.log(lossAgainst);
+      }}
+      onMouseLeave={()=> setHoveredWeapon(null)}
+      className={`z-50 hover:scale-95 p-0 relative  ${!lossAgainst.includes(hoveredWeapon) ? "" : "scale-105 animate-pulse"} transition-all rounded-full w-fit h-fit ${className}`}
     >
+      <p className="absolute -translate-x-1/2 -top-7 left-1/2 ">{!lossAgainst.includes(hoveredWeapon)? "" : "Wins against"}</p>
       <GameButton weapon={weapon} />
     </button>
   );
 };
 
 export const TestButton = ({ weapon }) => {
-  
+  const weaponDarkColor = findWeaponColor(weapon, "dark");
 
-  const weaponDarkColor = findWeaponColor(weapon, "dark")
+  const weaponLightColor = findWeaponColor(weapon, "light");
 
-  const weaponLightColor = findWeaponColor(weapon, "light")
-   
   return (
     <>
       {/* <Suspense fallback={<Loading/>}> */}
       <div
-     
         style={{
           backgroundColor: weaponDarkColor,
           borderColor: weaponDarkColor,
@@ -84,7 +94,6 @@ export const TestButton = ({ weapon }) => {
     </>
   );
 };
-
 
 export function EmptyGameButton({ playerOrComputer }) {
   return (

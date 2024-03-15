@@ -19,7 +19,10 @@ export const StartingScreen = () => {
     setRound,
     weaponData,
     gameType,
+    setResultText,
+    hoveredWeapon
   } = useContext(GameContext);
+
   const winText = findWeaponInfoFromMongoDB(weaponData, playerPick, "winText");
   const lossText = findWeaponInfoFromMongoDB(weaponData, computerPick, "winText");
   useEffect(() => {
@@ -32,12 +35,18 @@ export const StartingScreen = () => {
           ? findCorrectWinText
             ? winText[computerPick]
             : lossText[playerPick]
-          : "DRAW";
+          : "";
     } else {
       showCorrectText = "Waiting for player pick...";
     }
+    setResultText(showCorrectText);
     console.log(showCorrectText);
   }, [playerPick]);
+
+
+  useEffect(() => {
+    hoveredWeapon && console.log(hoveredWeapon)
+  }, [hoveredWeapon])
 
   const handlePlayRound = (weapon) => {
     setRound((round) => round + 1);
@@ -61,15 +70,10 @@ export const StartingScreen = () => {
         <>
           <div className="relative z-20 flex items-center justify-center w-full h-full">
             <div
-              className={` justify-center flex flex-wrap gap-24 w-fit  items-center`}
+              className={` justify-center flex flex-wrap ${gameType === "RPS" ? "gap-32" :gameType === "RPSLS" ? "gap-16" : gameType === "RPSLSFW" ? "gap-8" : "gap-4"} max-w-[1440px]  items-center`}
             >
-              {/* <div className={` justify-center ${gameType === "RPS" ? "flex flex-wrap gap-24 w-[560px]" : "RPSLS-area"} w-fit  items-center`}> */}
               <>
-                {/* <div id="one" className="p-12 bg-orange-300 rounded-full opacity-60 w-fit h-fit">scissor</div>
-              <div id="two" className="p-12 bg-orange-300 rounded-full opacity-60 w-fit h-fit">rock</div>
-              <div id="three" className="p-12 bg-orange-300 rounded-full opacity-60 w-fit h-fit">paper</div>
-              <div id="four" className="p-12 bg-orange-300 rounded-full opacity-60 w-fit h-fit">lizard</div>
-              <div id="five" className="p-12 bg-orange-300 rounded-full opacity-60 w-fit h-fit">spock</div> */}
+ 
                 {weaponsToUse(gameType).map((weapon) => (
                   <ActiveGameButton
                     key={weapon}

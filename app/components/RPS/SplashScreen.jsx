@@ -19,7 +19,7 @@ export const RPSSplashScreen = () => {
         >
           {/* //TODO Make this dynamic so the other logoes will show up as well (when changing gameType) */}
           <Image
-            src="/logo.svg"
+            src="/logo-RPS.svg"
             alt="logo"
             width={200}
             height={200}

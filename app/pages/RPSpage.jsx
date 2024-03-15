@@ -48,10 +48,6 @@ export const RockPaperScissors = ({ data }) => {
 
   return (
     <>
-    <div className="absolute top-0 left-0 z-20 p-8 m-8 bg-white max-w-36">
-      {playerPick && <p>{playerPick} {computerPick}</p>}
-      
-    </div>
       <Navigation />
       <div
         id="RPS"

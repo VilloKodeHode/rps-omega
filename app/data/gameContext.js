@@ -22,11 +22,13 @@ export const GameContext = createContext({
     computerPick: "", setComputerPick: () => { },
     score: null, setScore: () => { },
     result: "", setResult: () => { },
+    resultText: "", setResultText: () => { },
     toggle: "", setToggle: () => { },
     animationClass: "", setAnimationClass: () => { },
     round: null, setRound: () => { },
     weaponData: null, setWeapondata: () => { },
     gameType: null, setGameType: () => { },
+    hoveredWeapon: null, setHoveredWeapon: () => { },
 })
 
 export const GameContextProvider = ({ children }) => {
@@ -43,11 +45,14 @@ export const GameContextProvider = ({ children }) => {
     const [computerPick, setComputerPick] = useState("");
     const [score, setScore] = useState(0);
     const [result, setResult] = useState("");
+    const [resultText, setResultText] = useState("");
     const [toggle, setToggle] = useState(false);
     const [animationClass, setAnimationClass] = useState("");
     const [round, setRound] = useState(0);
     const [weaponData, setWeaponData] = useState([]);
     const [gameType, setGameType] = useState("");
+    const [hoveredWeapon, setHoveredWeapon] = useState(null);
+    
 
     const states = {
         paper, setPaper,
@@ -63,11 +68,13 @@ export const GameContextProvider = ({ children }) => {
         computerPick, setComputerPick,
         score, setScore,
         result, setResult,
+        resultText, setResultText,
         toggle, setToggle,
         animationClass, setAnimationClass,
         round, setRound,
         weaponData, setWeaponData,
-        gameType, setGameType
+        gameType, setGameType,
+        hoveredWeapon, setHoveredWeapon
     }
     return (
         <GameContext.Provider value={states}>
