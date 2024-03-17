@@ -4,8 +4,7 @@ import {
   findWeaponColorFromMongoDB,
   findWeaponInfoFromMongoDB,
 } from "@/app/data/utils";
-import Loading from "@/app/components/RPS/loading";
-import { Suspense, useContext, useEffect } from "react";
+import { useContext } from "react";
 
 // TODO: Make the buttons change size when adding more weapons on the screen?
 
@@ -45,8 +44,8 @@ export const GameButton = ({ weapon }) => {
 export const ActiveGameButton = ({ weapon, handlePlayRound, className }) => {
   //TODO See if logic can be improved. Do I need yet another useState for this?
   const { setHoveredWeapon, weaponData, hoveredWeapon } = useContext(GameContext);
-  const lossAgainst = findWeaponInfoFromMongoDB(weaponData, weapon, "loss");
-
+  const losingWeapons = findWeaponInfoFromMongoDB(weaponData, weapon, "loss");
+const isWeaponWinning = losingWeapons.includes(hoveredWeapon)
 
   return (
     <button
@@ -56,12 +55,12 @@ export const ActiveGameButton = ({ weapon, handlePlayRound, className }) => {
       }}
       onMouseEnter={() => {
         setHoveredWeapon(weapon);
-        console.log(lossAgainst);
+        console.log(losingWeapons);
       }}
       onMouseLeave={()=> setHoveredWeapon(null)}
-      className={`z-50 hover:scale-95 p-0 relative  ${!lossAgainst.includes(hoveredWeapon) ? "" : "scale-105 animate-pulse"} transition-all rounded-full w-fit h-fit ${className}`}
+      className={`z-50 hover:scale-95 p-0 relative  ${isWeaponWinning ? "scale-105 animate-pulse" : ""} transition-all rounded-full w-fit h-fit ${className}`}
     >
-      <p className="absolute -translate-x-1/2 -top-7 left-1/2 ">{!lossAgainst.includes(hoveredWeapon)? "" : "Wins against"}</p>
+      <p className="absolute -translate-x-1/2 -top-7 left-1/2 ">{isWeaponWinning? "Wins against" : ""}</p>
       <GameButton weapon={weapon} />
     </button>
   );

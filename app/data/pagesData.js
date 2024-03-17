@@ -1,3 +1,5 @@
+// Used for mapping out buttons in Navigation.jsx
+
 export const gamesData = [
     {
         name: "RockPaperScissors",

@@ -4,6 +4,7 @@ import { GameContext } from "./gameContext";
 
 
 
+//! findWeaponColor is old code that was used before introducing the database
 export const findWeaponColor = (weapon, lightOrDark) => {
     const weaponInfo = weaponsInfo.find((info) => info.weaponName === weapon);
     return weaponInfo ? weaponInfo[lightOrDark + "Color"] : null;
@@ -14,7 +15,7 @@ export const findWeaponColorFromMongoDB = (weapon, lightOrDark) => {
     return weaponInfo ? weaponInfo[lightOrDark + "Color"] : null;
 }
 
-
+//! findWeaponInfo is old code that was used before introducing the database
 export const findWeaponInfo = (weapon, infoToFind) => {
     const weaponInfo = weaponsInfo.find((info) => info.weaponName === weapon)
     return weaponInfo ? weaponInfo[infoToFind] : null;
@@ -28,7 +29,6 @@ export const findWeaponInfoFromMongoDB = (weaponData, weapon, infoToFind) => {
 
 
 export const updateScore = (result, setScore) => {
-    // const { result, setScore } = useGameContext(GameContext)
     setTimeout(() => {
         result === "WIN" ?
             setScore((prevScore) => prevScore + 1)

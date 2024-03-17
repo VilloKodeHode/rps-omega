@@ -25,7 +25,7 @@ testGameLogic()
       <main className="flex flex-col items-center justify-between min-h-screen p-24">
         <>
         {/* //TODO: Is the propping neccecery? */}
-          <RPSSplashScreen data={fetchWeaponInfo} />
+          <RPSSplashScreen />
           <RockPaperScissors data={fetchWeaponInfo} />
         </>
       </main>

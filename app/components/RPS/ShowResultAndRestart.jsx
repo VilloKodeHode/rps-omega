@@ -9,9 +9,10 @@ export function ShowResultAndRestart() {
   // TODO (DONE) can setType be shortend and improved so its dynamic when other weapons are added?
   //TODO Test if the new implementation of setType has any errors
   //TODO make a function for capitalizing (or is there js existing for this?)
+  const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
   const setType =
     GameContext._currentValue[
-      "set" + playerPick.charAt(0).toUpperCase() + playerPick.slice(1)
+      "set" + capitalize(playerPick)
     ];
 
  

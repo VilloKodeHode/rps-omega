@@ -1,5 +1,5 @@
 import { getCookie, setCookie } from "cookies-next";
-
+//! Not implemented yet
 export const setFetchedDataToCookie = (key, data) => {
     const decodedData = decodeURIComponent(JSON.stringify(data));
     setCookie(key, decodedData);
