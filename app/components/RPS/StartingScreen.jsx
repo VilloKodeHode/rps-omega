@@ -7,7 +7,7 @@ import {
   findWeaponInfoFromMongoDB,
   weaponsToUse,
 } from "@/app/data/utils";
-import playRound from "@/app/logic/Gamelogic";
+import PlayRound from "@/app/logic/Gamelogic";
 
 export const StartingScreen = () => {
   const {
@@ -52,7 +52,7 @@ export const StartingScreen = () => {
     setPlayerPick(weapon);
     const setType = GameContext._currentValue["set" + capitalize(weapon)];
     setType(true);
-    playRound(
+    PlayRound(
       { setComputerPick, setScore, setResult, gameType, weaponData },
       weapon
     );

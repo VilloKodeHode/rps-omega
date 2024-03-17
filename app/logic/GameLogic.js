@@ -1,6 +1,6 @@
 import { findWeaponInfoFromMongoDB, numOfWeapons, randomWeapon, updateScore } from "@/app/data/utils";
 
-export function playRound(
+export function PlayRound(
   { setComputerPick, setScore, setResult, weaponData, gameType },
   playerPick
 ) {
@@ -22,4 +22,4 @@ export function playRound(
   return result;
 }
 
-export default playRound;
+export default PlayRound;
