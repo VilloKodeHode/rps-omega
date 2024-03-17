@@ -1,12 +1,13 @@
 import { GameContext } from "@/app/data/gameContext";
 import { useContext, useEffect } from "react";
 import { ActiveGameButton } from "../Buttons/GameButtons";
-import playRound from "@/app/logic/Gamelogic";
+
 import {
   capitalize,
   findWeaponInfoFromMongoDB,
   weaponsToUse,
 } from "@/app/data/utils";
+import playRound from "@/app/logic/Gamelogic";
 
 export const StartingScreen = () => {
   const {
