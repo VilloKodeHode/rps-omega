@@ -7,7 +7,7 @@ import {
   findWeaponInfoFromMongoDB,
   weaponsToUse,
 } from "@/app/data/utils";
-import PlayRound from "@/app/logic/Gamelogic";
+import PlayRound from "../../logic/Gamelogic";
 
 export const StartingScreen = () => {
   const {
