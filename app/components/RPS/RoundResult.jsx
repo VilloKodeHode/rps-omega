@@ -1,8 +1,7 @@
 import { GameContext } from "@/app/data/gameContext";
-import { ShowResultAndRestart } from "./ShowResultAndRestart";
+import { ShowResultAndRestart } from "./TextResultAndRestart";
 import { useContext } from "react";
-import { ComputerResult } from "./ComputerResult";
-import { PlayerResult } from "./PlayerResult";
+import { ShowPickResult } from "./ShowPickResult";
 export const RPSShowResult = () => {
   const { playerPick } = useContext(GameContext);
   return (
@@ -11,9 +10,9 @@ export const RPSShowResult = () => {
         {playerPick && (
           <>
             <div className="z-40 flex h-full text-white align-top">
-              <PlayerResult />
+              <ShowPickResult playerOrComputer="player" />
               <ShowResultAndRestart />
-              <ComputerResult />
+              <ShowPickResult playerOrComputer="computer" />
             </div>
           </>
         )}

@@ -2,7 +2,6 @@ import { GameContext } from "@/app/data/gameContext";
 import { useContext } from "react";
 
 export const RPSRules = () => {
-  //TODO look over and see if this can be reduced. Maybe create components out of it?
   const { toggle, setToggle, gameType } = useContext(GameContext);
   return (
     <div className="z-40">

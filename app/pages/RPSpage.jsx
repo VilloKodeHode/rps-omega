@@ -3,16 +3,16 @@
 //style
 import "../styles/RockPaperScissor.css";
 
-import { StartingScreen } from "../components/RPS/RPSStartingScreen";
+import { StartingScreen } from "../components/RPS/StartingScreen";
 import { GameContext } from "@/app/data/gameContext";
-import { RPSHeader } from "../components/RPS/RPSHeader";
-import { RPSShowResult } from "../components/RPS/RPSShowResult";
+import { RPSHeader } from "../components/RPS/Header";
+import { RPSShowResult } from "../components/RPS/RoundResult";
 import { useContext, useEffect } from "react";
-import { RPSRules } from "../components/RPS/RPSRules";
+import { RPSRules } from "../components/RPS/GameRules";
 import { Navigation } from "../components/Navigation";
 
 export const RockPaperScissors = ({ data }) => {
-  const { setAnimationClass, round, result, setWeaponData, playerPick, computerPick } =
+  const { setAnimationClass, round, result, setWeaponData} =
     useContext(GameContext);
 //TODO can i reduce the amount of useEffects?
   useEffect(() => {

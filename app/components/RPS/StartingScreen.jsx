@@ -1,9 +1,9 @@
 import { GameContext } from "@/app/data/gameContext";
 import { useContext, useEffect } from "react";
 import { ActiveGameButton } from "../Buttons/GameButtons";
-import PlayRound from "@/app/logic/GameLogic";
+import playRound from "@/app/logic/gameLogic";
 import {
-  findWeaponInfo,
+  capitalize,
   findWeaponInfoFromMongoDB,
   weaponsToUse,
 } from "@/app/data/utils";
@@ -20,11 +20,15 @@ export const StartingScreen = () => {
     weaponData,
     gameType,
     setResultText,
-    hoveredWeapon
   } = useContext(GameContext);
-//TODO See if logic can be moved away from here:
+  //TODO See if logic can be moved away from here:
+
   const winText = findWeaponInfoFromMongoDB(weaponData, playerPick, "winText");
-  const lossText = findWeaponInfoFromMongoDB(weaponData, computerPick, "winText");
+  const lossText = findWeaponInfoFromMongoDB(
+    weaponData,
+    computerPick,
+    "winText"
+  );
   useEffect(() => {
     const findCorrectWinText = winText && computerPick in winText;
 
@@ -40,25 +44,14 @@ export const StartingScreen = () => {
       showCorrectText = "Waiting for player pick...";
     }
     setResultText(showCorrectText);
-    console.log(showCorrectText);
   }, [playerPick]);
-
-
-  useEffect(() => {
-    hoveredWeapon && console.log(hoveredWeapon)
-  }, [hoveredWeapon])
 
   const handlePlayRound = (weapon) => {
     setRound((round) => round + 1);
     setPlayerPick(weapon);
-    const setType =
-      GameContext._currentValue[
-        //TODO make a function for capitalizing (or is there js existing for this?)
-        `set${weapon.charAt(0).toUpperCase()}${weapon.slice(1)}`
-      ];
+    const setType = GameContext._currentValue["set" + capitalize(weapon)];
     setType(true);
-    //TODO: Can this be improved and removed here? Meaning the propping...
-    PlayRound(
+    playRound(
       { setComputerPick, setScore, setResult, gameType, weaponData },
       weapon
     );
@@ -70,10 +63,17 @@ export const StartingScreen = () => {
         <>
           <div className="relative z-20 flex items-center justify-center w-full h-full">
             <div
-              className={` justify-center flex flex-wrap ${gameType === "RPS" ? "gap-32" :gameType === "RPSLS" ? "gap-16" : gameType === "RPSLSFW" ? "gap-8" : "gap-4"} max-w-[1440px]  items-center`}
+              className={`justify-center flex flex-wrap ${
+                gameType === "RPS"
+                  ? "gap-32"
+                  : gameType === "RPSLS"
+                  ? "gap-16"
+                  : gameType === "RPSLSFW"
+                  ? "gap-8"
+                  : "gap-4"
+              } max-w-[1440px] items-center`}
             >
               <>
- 
                 {weaponsToUse(gameType).map((weapon) => (
                   <ActiveGameButton
                     key={weapon}

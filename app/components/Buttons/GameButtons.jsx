@@ -19,7 +19,6 @@ export const GameButton = ({ weapon }) => {
     : "292a2d";
   return (
     <>
-      {/* <Suspense fallback={<Loading/>}> */}
       <div
         style={{
           backgroundColor: weaponDarkColor,
@@ -36,7 +35,6 @@ export const GameButton = ({ weapon }) => {
           </div>
         </div>
       </div>
-      {/* </Suspense> */}
     </>
   );
 };
@@ -44,8 +42,8 @@ export const GameButton = ({ weapon }) => {
 export const ActiveGameButton = ({ weapon, handlePlayRound, className }) => {
   //TODO See if logic can be improved. Do I need yet another useState for this?
   const { setHoveredWeapon, weaponData, hoveredWeapon } = useContext(GameContext);
-  const losingWeapons = findWeaponInfoFromMongoDB(weaponData, weapon, "loss");
-const isWeaponWinning = losingWeapons.includes(hoveredWeapon)
+  const islosingWeapon = findWeaponInfoFromMongoDB(weaponData, weapon, "loss").includes(hoveredWeapon);
+  const isWinningWeapon = findWeaponInfoFromMongoDB(weaponData, weapon, "win").includes(hoveredWeapon);
 
   return (
     <button
@@ -55,12 +53,11 @@ const isWeaponWinning = losingWeapons.includes(hoveredWeapon)
       }}
       onMouseEnter={() => {
         setHoveredWeapon(weapon);
-        console.log(losingWeapons);
       }}
       onMouseLeave={()=> setHoveredWeapon(null)}
-      className={`z-50 hover:scale-95 p-0 relative  ${isWeaponWinning ? "scale-105 animate-pulse" : ""} transition-all rounded-full w-fit h-fit ${className}`}
+      className={`z-50 hover:scale-95 p-0 relative  ${islosingWeapon ? "scale-105 shadow-[0_0_5px_3px_#2cdae5] " : isWinningWeapon ? "scale-90 shadow-[0_0_5px_3px_#f87171]" : null} transition-all rounded-full w-fit h-fit ${className}`}
     >
-      <p className="absolute -translate-x-1/2 -top-7 left-1/2 ">{isWeaponWinning? "Wins against" : ""}</p>
+      <p className="absolute -translate-x-1/2 -top-7 left-1/2 ">{islosingWeapon ? "Wins against" : isWinningWeapon ? "Loses against": null}</p>
       <GameButton weapon={weapon} />
     </button>
   );
@@ -73,7 +70,6 @@ export const TestButton = ({ weapon }) => {
 
   return (
     <>
-      {/* <Suspense fallback={<Loading/>}> */}
       <div
         style={{
           backgroundColor: weaponDarkColor,
@@ -90,12 +86,11 @@ export const TestButton = ({ weapon }) => {
           </div>
         </div>
       </div>
-      {/* </Suspense> */}
     </>
   );
 };
 
-export function EmptyGameButton({ playerOrComputer }) {
+export function ButtonShadow({ playerOrComputer }) {
   return (
     <div
       className={`absolute origin-left -translate-x-1/2 -translate-y-1/2 ${
@@ -128,319 +123,3 @@ export function WinnerGlow() {
   );
 }
 
-//Largest buttons:
-export function ScissorsGameButton() {
-  return (
-    <div
-      className={`border-b-8 bg-yellow-700 rounded-full border-yellow-700 z-40`}
-    >
-      <div
-        className={`rounded-full p-10 bg-white border-[22px] border-yellow-500  buttonshadow`}
-      >
-        <div className="relative flex w-20 h-20">
-          <img className="z-20 w-16 m-auto" src="/icon-scissors.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function PaperGameButton() {
-  return (
-    <div className={`border-b-8 bg-blue-700 rounded-full border-blue-700 z-40`}>
-      <div
-        className={`rounded-full p-10 bg-white border-[22px] border-blue-500  buttonshadow`}
-      >
-        <div className="relative flex w-20 h-20">
-          <img className="z-20 w-16 m-auto" src="/icon-paper.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function RockGameButton() {
-  return (
-    <div className={`border-b-8 bg-red-700 rounded-full border-red-700 z-40`}>
-      <div
-        className={`rounded-full p-10 bg-white border-[22px] border-red-500  buttonshadow`}
-      >
-        <div className="relative flex w-20 h-20">
-          <img className="z-20 w-16 m-auto" src="/icon-rock.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function LizardGameButton() {
-  return (
-    <div
-      className={`border-b-8 bg-purple-700 rounded-full border-purple-700 z-40`}
-    >
-      <div
-        className={`rounded-full p-10 bg-white border-[22px] border-purple-500  buttonshadow`}
-      >
-        <div className="relative flex w-20 h-20">
-          <img className="z-20 w-16 m-auto" src="/icon-lizard.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function SpockGameButton() {
-  return (
-    <div className={`border-b-8 bg-teal-700 rounded-full border-teal-700 z-40`}>
-      <div
-        className={`rounded-full p-10 bg-white border-[22px] border-teal-500  buttonshadow`}
-      >
-        <div className="relative flex w-20 h-20">
-          <img className="z-20 w-16 m-auto" src="/icon-spock.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function FireGameButton() {
-  return (
-    <div
-      className={`border-b-8 bg-orange-700 rounded-full border-orange-700 z-40`}
-    >
-      <div
-        className={`rounded-full p-10 bg-white border-[22px] border-orange-500  buttonshadow`}
-      >
-        <div className="relative flex w-20 h-20">
-          <img className="z-20 w-16 m-auto" src="/icon-fire.png" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function WaterGameButton() {
-  return (
-    <div className={`border-b-8 bg-sky-700 rounded-full border-sky-700 z-40`}>
-      <div
-        className={`rounded-full p-10 bg-white border-[22px] border-sky-500  buttonshadow`}
-      >
-        <div className="relative flex w-20 h-20">
-          <img className="z-20 w-16 m-auto" src="/icon-water.png" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-//Smaller buttons:
-export function ScissorsSmallGameButton() {
-  return (
-    <div
-      className={`border-b-4 bg-yellow-700 rounded-full border-yellow-700 z-40`}
-    >
-      <div
-        className={`rounded-full p-[36px] bg-white border-[22px] border-yellow-500  buttonshadow`}
-      >
-        <div className="relative flex w-20 h-20">
-          <img className="w-[70px] m-auto z-20" src="/icon-scissors.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function PaperSmallGameButton() {
-  return (
-    <div className={`border-b-8 bg-blue-700 rounded-full border-blue-700 z-40`}>
-      <div
-        className={`rounded-full p-[36px] bg-white border-[22px] border-blue-500  buttonshadow`}
-      >
-        <div className="relative flex w-20 h-20">
-          <img className="w-[70px] m-auto z-20" src="/icon-paper.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function RockSmallGameButton() {
-  return (
-    <div className={`border-b-8 bg-red-700 rounded-full border-red-700 z-40`}>
-      <div
-        className={`rounded-full p-[36px] bg-white border-[22px] border-red-500  buttonshadow`}
-      >
-        <div className="relative flex w-20 h-20">
-          <img className="w-[70px] m-auto z-20" src="/icon-rock.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function LizardSmallGameButton() {
-  return (
-    <div
-      className={`border-b-8 bg-purple-700 rounded-full border-purple-700 z-40`}
-    >
-      <div
-        className={`rounded-full p-[36px] bg-white border-[22px] border-purple-500  buttonshadow`}
-      >
-        <div className="relative flex w-20 h-20">
-          <img className="w-[70px] m-auto z-20" src="/icon-lizard.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function SpockSmallGameButton() {
-  return (
-    <div className={`border-b-8 bg-teal-700 rounded-full border-teal-700 z-40`}>
-      <div
-        className={`rounded-full p-[28px] bg-white border-[22px] border-teal-500  buttonshadow`}
-      >
-        <div className="relative flex w-24 h-24">
-          <img className="w-[70px] m-auto z-20" src="/icon-spock.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function FireSmallGameButton() {
-  return (
-    <div
-      className={`border-b-8 bg-orange-700 rounded-full border-orange-700 z-40`}
-    >
-      <div
-        className={`rounded-full p-[28px] bg-white border-[22px] border-orange-500  buttonshadow`}
-      >
-        <div className="relative flex w-24 h-24">
-          <img className="w-[70px] m-auto z-20" src="/icon-fire.png" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function WaterSmallGameButton() {
-  return (
-    <div className={`border-b-8 bg-sky-700 rounded-full border-sky-700 z-40`}>
-      <div
-        className={`rounded-full p-[28px] bg-white border-[22px] border-sky-500  buttonshadow`}
-      >
-        <div className="relative flex w-24 h-24">
-          <img className="w-[70px] m-auto z-20" src="/icon-water.png" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-//Smallest buttons:
-export function ScissorsSmallestGameButton() {
-  return (
-    <div
-      className={`border-b-2 bg-yellow-700 rounded-full border-yellow-700 z-40`}
-    >
-      <div
-        className={`rounded-full p-[24px] bg-white border-[18px] border-yellow-500  buttonshadow`}
-      >
-        <div className="relative flex w-16 h-16">
-          <img className="w-[55px] m-auto z-20" src="/icon-scissors.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function PaperSmallestGameButton() {
-  return (
-    <div className={`border-b-2 bg-blue-700 rounded-full border-blue-700 z-40`}>
-      <div
-        className={`rounded-full p-[24px] bg-white border-[18px] border-blue-500  buttonshadow`}
-      >
-        <div className="relative flex w-16 h-16">
-          <img className="w-[55px] m-auto z-20" src="/icon-paper.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function RockSmallestGameButton() {
-  return (
-    <div className={`border-b-2 bg-red-700 rounded-full border-red-700 z-40`}>
-      <div
-        className={`rounded-full p-[24px] bg-white border-[18px] border-red-500  buttonshadow`}
-      >
-        <div className="relative flex w-16 h-16">
-          <img className="w-[55px] m-auto z-20" src="/icon-rock.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function LizardSmallestGameButton() {
-  return (
-    <div
-      className={`border-b-2 bg-purple-700 rounded-full border-purple-700 z-40`}
-    >
-      <div
-        className={`rounded-full p-[24px] bg-white border-[18px] border-purple-500  buttonshadow`}
-      >
-        <div className="relative flex w-16 h-16">
-          <img className="w-[55px] m-auto z-20" src="/icon-lizard.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function SpockSmallestGameButton() {
-  return (
-    <div className={`border-b-2 bg-teal-700 rounded-full border-teal-700 z-40`}>
-      <div
-        className={`rounded-full p-[24px] bg-white border-[18px] border-teal-500  buttonshadow`}
-      >
-        <div className="relative flex w-16 h-16">
-          <img className="w-[55px] m-auto z-20" src="/icon-spock.svg" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function FireSmallestGameButton() {
-  return (
-    <div
-      className={`border-b-2 bg-orange-700 rounded-full border-orange-700 z-40`}
-    >
-      <div
-        className={`rounded-full p-[24px] bg-white border-[18px] border-orange-500  buttonshadow`}
-      >
-        <div className="relative flex w-16 h-16">
-          <img className="w-[55px] m-auto z-20" src="/icon-fire.png" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export function WaterSmallestGameButton() {
-  return (
-    <div className={`border-b-2 bg-sky-700 rounded-full border-sky-700 z-40`}>
-      <div
-        className={`rounded-full p-[24px] bg-white border-[18px] border-sky-500  buttonshadow`}
-      >
-        <div className="relative flex w-16 h-16">
-          <img className="w-[55px] m-auto z-20" src="/icon-water.png" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-export default ScissorsGameButton;

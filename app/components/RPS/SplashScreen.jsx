@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useContext } from "react";
 
 export const RPSSplashScreen = () => {
-  const { weaponData, gameType } = useContext(GameContext);
+  const { weaponData } = useContext(GameContext);
 
   return (
     <>

@@ -47,3 +47,9 @@ export const weaponsToUse = (gameType) => {
     return getAllWeaponNames().slice(0, gameType === "RPS" ? 3 : gameType === "RPSLS" ? 5 : gameType === "RPSLSFW" ? 7 : gameType === "OMEGA" ? 9 : null)
 }
 
+export const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
+
+export const numOfWeapons = (gameType) => gameType === "RPS" ? 3 : gameType === "RPSLS" ? 5 : gameType === "RPSLSFW" ? 7 : gameType === "OMEGA" ? 9 : null
+
+
+

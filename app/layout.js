@@ -17,11 +17,9 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`overflow-x-hidden ${inter.className}`}>
         <>
-        {/* <RPSSplashScreen/> */}
         {children}
         </>
         </body>
-      {/* <body className={`overflow-x-hidden ${inter.className}`}><Suspense fallback={<Loading />}>{children}</Suspense></body> */}
     </html>
   );
 }
