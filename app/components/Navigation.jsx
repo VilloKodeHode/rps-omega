@@ -23,7 +23,7 @@ export const Navigation = () => {
           >
             <img
               className="w-16 h-16 p-2 rounded-xl opacity-80 bg-lightBlue"
-              src={`/${data.src}`}
+              src={`${data.src}`}
             />
           </button>
         ))}

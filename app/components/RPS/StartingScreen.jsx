@@ -89,7 +89,7 @@ export const StartingScreen = () => {
             {/* <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 -z-10">
           
               <img
-                src={`/bg-${
+                src={`/images/bg-shapes/bg-${
                   gameType === "RPS"
                     ? "triangle"
                     : gameType === "RPSLS"

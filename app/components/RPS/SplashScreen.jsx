@@ -17,7 +17,7 @@ export const RPSSplashScreen = () => {
           className={`splashScreen  flex flex-col items-center justify-center bg-black w-full h-full overflow-hidden  gap-16  `}
         >
           <Image
-            src={`/logo-RPS.svg`}
+            src={`/images/logo/logo-RPS.svg`}
             alt="logo"
             width={200}
             height={200}

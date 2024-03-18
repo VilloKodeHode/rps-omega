@@ -31,7 +31,7 @@ export const GameButton = ({ weapon }) => {
           className={`rounded-full h-fit w-fit p-10 bg-white border-[22px] buttonshadow`}
         >
           <div className="relative flex w-20 h-20">
-            <img className="z-20 w-16 m-auto" src={`/icon-${weapon}.svg`} />
+            <img className="z-20 w-16 m-auto" src={`/images/weapons/icon-${weapon}.svg`} />
           </div>
         </div>
       </div>
